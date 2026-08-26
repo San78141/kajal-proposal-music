@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>A Secret For Kajal ❤️</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #481126 0%, #16060d 45%, #08080b 100%);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===============================
+       FLOATING HEARTS
+    =============================== */
+
+    .floating-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      animation: floatHeart linear forwards;
+      opacity: 0;
+    }
+
+    @keyframes floatHeart {
+
+      0% {
+        transform: translateY(100vh) rotate(0deg) scale(.6);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: .8;
+      }
+
+      100% {
+        transform: translateY(-120px) rotate(360deg) scale(1.2);
+        opacity: 0;
+      }
+
+    }
+
+    /* ===============================
+       INTRO
+    =============================== */
+
+    #introScreen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .intro-box {
+      max-width: 650px;
+      width: 100%;
+      padding: 50px 30px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 25px 80px rgba(0,0,0,.45);
+    }
+
+    .intro-heart {
+      font-size: 70px;
+      animation: heartBeat 1.2s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes heartBeat {
+
+      0% {
+        transform: scale(1);
+      }
+
+      25% {
+        transform: scale(1.25);
+      }
+
+      50% {
+        transform: scale(1);
+      }
+
+      75% {
+        transform: scale(1.18);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+
+    }
+
+    .intro-box h1 {
+      font-size: clamp(32px, 7vw, 62px);
+      margin-bottom: 20px;
+    }
+
+    .intro-box p {
+      color: #d8c4ca;
+      line-height: 1.7;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .main-button {
+      border: none;
+      cursor: pointer;
+      padding: 16px 30px;
+      border-radius: 50px;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ff1e5a, #ff4b81);
+      box-shadow: 0 12px 35px rgba(255,30,90,.35);
+      transition: .3s;
+    }
+
+    .main-button:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
+
+    /* ===============================
+       MAIN WEBSITE
+    =============================== */
+
+    #mainWebsite {
+      display: none;
+      position: relative;
+      z-index: 5;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    section {
+      margin-bottom: 70px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(28px, 5vw, 42px);
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #c7b3ba;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    /* ===============================
+       HERO
+    =============================== */
+
+    .hero-card {
+      text-align: center;
+      padding: 55px 25px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg,
+        rgba(255,30,90,.12),
+        rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .hero-card h1 {
+      font-size: clamp(38px, 8vw, 70px);
+      margin-bottom: 15px;
+    }
+
+    .hero-card .names {
+      color: #ff6d95;
+    }
+
+    .hero-card p {
+      color: #d7c7cc;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* ===============================
+       MUSIC PLAYER
+    =============================== */
+
+    .music-player {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 25px;
+      border-radius: 25px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .song-name {
+      text-align: center;
+      color: #ffb3c7;
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .music-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .music-btn {
+      border: none;
+      cursor: pointer;
+      padding: 13px 22px;
+      border-radius: 50px;
+      color: white;
+      background: linear-gradient(135deg, #ff1e5a, #ff4d83);
+      font-size: 15px;
+      font-weight: bold;
+      transition: .25s;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .volume-box {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #volumeControl {
+      width: min(100%, 350px);
+    }
+
+    /* ===============================
+       PHOTO GALLERY
+    =============================== */
+
+    .gallery-controls {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .small-btn {
+      border: none;
+      cursor: pointer;
+      padding: 12px 22px;
+      border-radius: 30px;
+      color: white;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .photo-card {
+      position: relative;
+      height: 330px;
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #151116;
+      border: 2px solid rgba(255,255,255,.08);
+      transition: .45s;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-10px) rotate(1deg);
+      border-color: rgba(255,70,120,.6);
+      box-shadow: 0 20px 50px rgba(255,20,90,.22);
+    }
+
+    .photo-card.heartbeat {
+      animation: photoBeat 1.1s ease-in-out;
+    }
+
+    @keyframes photoBeat {
+
+      0% {
+        transform: scale(1);
+      }
+
+      25% {
+        transform: scale(1.06);
+      }
+
+      45% {
+        transform: scale(.98);
+      }
+
+      65% {
+        transform: scale(1.04);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 1s;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(20,0,8,.85),
+          transparent 60%
+        );
+    }
+
+    .photo-text {
+      position: absolute;
+      bottom: 20px;
+      left: 18px;
+      right: 18px;
+      z-index: 3;
+    }
+
+    .photo-text h3 {
+      font-size: 20px;
+    }
+
+    .photo-text p {
+      color: #f0ccd7;
+      margin-top: 7px;
+      font-size: 14px;
+    }
+
+    /* HEARTS INSIDE PHOTOS */
+
+    .inside-heart {
+      position: absolute;
+      z-index: 4;
+      pointer-events: none;
+      animation: insideFloat 3s ease-in-out infinite;
+      opacity: .9;
+    }
+
+    @keyframes insideFloat {
+
+      0%, 100% {
+        transform: translateY(0) rotate(-10deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(10deg);
+      }
+
+    }
+
+    /* ===============================
+       SHAYARI
+    =============================== */
+
+    .shayari-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      padding: 45px 25px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg,
+        rgba(255,30,90,.12),
+        rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .shayari-text {
+      font-size: clamp(20px, 3vw, 27px);
+      line-height: 1.9;
+      color: #ffe5ed;
+    }
+
+    /* ===============================
+       SURPRISE CARDS
+    =============================== */
+
+    .surprise-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .surprise-card {
+      min-height: 180px;
+      cursor: pointer;
+      padding: 25px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: .3s;
+    }
+
+    .surprise-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,50,100,.1);
+    }
+
+    .surprise-card .emoji {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .surprise-message {
+      display: none;
+      margin-top: 12px;
+      color: #ffd9e4;
+      line-height: 1.6;
+    }
+
+    /* ===============================
+       GAME / TASKS
+    =============================== */
+
+    .game-box {
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      text-align: center;
+    }
+
+    .task {
+      margin: 15px 0;
+      padding: 16px;
+      text-align: left;
+      border-radius: 15px;
+      background: rgba(0,0,0,.2);
+    }
+
+    .task label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ead8dd;
+    }
+
+    .task input {
+      width: 19px;
+      height: 19px;
+      accent-color: #ff2f68;
+    }
+
+    .game-result {
+      margin-top: 20px;
+      color: #ffb2c7;
+      min-height: 25px;
+      font-weight: bold;
+    }
+
+    /* ===============================
+       LOVE QUIZ
+    =============================== */
+
+    .quiz-options {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .quiz-option {
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 15px;
+      border-radius: 15px;
+      background: rgba(255,255,255,.05);
+      color: white;
+      transition: .25s;
+    }
+
+    .quiz-option:hover {
+      background: rgba(255,30,90,.18);
+    }
+
+    /* ===============================
+       FINAL PROPOSAL
+    =============================== */
+
+    .proposal-box {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      padding: 55px 25px;
+      border-radius: 35px;
+      background:
+        linear-gradient(135deg,
+        #5b1028,
+        #2b0a17);
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: 0 25px 80px rgba(255,20,90,.18);
+    }
+
+    .proposal-box h2 {
+      font-size: clamp(32px, 6vw, 52px);
+      margin-bottom: 20px;
+    }
+
+    .proposal-box p {
+      color: #f1cfd9;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-size: 17px;
+    }
+
+    .yes-btn {
+      border: none;
+      cursor: pointer;
+      padding: 18px 45px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ff174f, #ff5b88);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 15px 40px rgba(255,20,80,.35);
+      animation: yesPulse 1.8s infinite;
+    }
+
+    @keyframes yesPulse {
+
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.07);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+
+    }
+
+    .final-message {
+      display: none;
+      margin-top: 30px;
+      font-size: 22px;
+      color: #fff0f4;
+      line-height: 1.8;
+    }
+
+    /* ===============================
+       PHOTO MODAL
+    =============================== */
+
+    #photoModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0,0,0,.9);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    #photoModal img {
+      max-width: 95%;
+      max-height: 80vh;
+      border-radius: 20px;
+      box-shadow: 0 0 60px rgba(255,30,90,.3);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 38px;
+      cursor: pointer;
+    }
+
+    /* ===============================
+       CELEBRATION
+    =============================== */
+
+    .celebration-heart {
+      position: fixed;
+      z-index: 200;
+      pointer-events: none;
+      font-size: 30px;
+      animation: celebration 4s linear forwards;
+    }
+
+    @keyframes celebration {
+
+      from {
+        transform: translateY(100vh) scale(.5);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-100px) scale(1.5) rotate(360deg);
+        opacity: 0;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        padding: 20px 15px;
+      }
+
+      .intro-box {
+        padding: 40px 20px;
+      }
+
+      .photo-card {
+        height: 400px;
+      }
+
+      .music-btn {
+        flex: 1;
+        min-width: 100px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- ===============================
+       INTRO SCREEN
+  ================================ -->
+
+  <div id="introScreen">
+
+    <div class="intro-box">
+
+      <div class="intro-heart">❤️</div>
+
+      <h1>Kajal...</h1>
+
+      <p>
+        Mere paas tumhare liye ek chhota sa surprise hai...
+        <br><br>
+        Lekin ek warning hai...
+        <br>
+        Iske baad shayad tumhare face par smile aa jaye. ❤️
+      </p>
+
+      <button class="main-button"
+              onclick="startExperience()">
+        Click Here Kajal ❤️
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===============================
+       MAIN WEBSITE
+  ================================ -->
+
+  <main id="mainWebsite">
+
+    <div class="container">
+
+
+      <!-- HERO -->
+
+      <section>
+
+        <div class="hero-card">
+
+          <div class="intro-heart">❤️</div>
+
+          <h1>
+            Sandeep
+            <span class="names">❤️</span>
+            Kajal
+          </h1>
+
+          <p>
+            Kuch log zindagi me bas milte hain...
+            <br>
+            Aur kuch log zindagi ko special bana dete hain.
+            <br><br>
+            Kajal, tum mere liye un special logon me se ho.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- MUSIC -->
+
+      <section>
+
+        <h2 class="section-title">
+          Our Love Playlist 🎵
+        </h2>
+
+        <p class="section-subtitle">
+          Song 1 background mein chalega. Song 2, 3 ya 4 select karne par background music pause hoga.
+          Special song band ya finish hote hi Song 1 automatically wapas chalega. ❤️
+        </p>
+
+        <div class="music-player">
+
+          <div class="song-name" id="songName">
+            Background Music: Song 1 ❤️
+          </div>
+
+          <!-- Song 1: always the default background music -->
+          <audio id="backgroundMusic" preload="metadata" playsinline loop></audio>
+
+          <!-- Song 2, 3, 4: selected songs -->
+          <audio id="specialMusic" preload="metadata" playsinline></audio>
+
+          <div class="quiz-options" id="playlistButtons">
+            <button class="quiz-option" onclick="selectSpecialSong(0)">🎵 Song 2</button>
+            <button class="quiz-option" onclick="selectSpecialSong(1)">💕 Song 3</button>
+            <button class="quiz-option" onclick="selectSpecialSong(2)">🌹 Song 4</button>
+          </div>
+
+          <div class="music-controls" style="margin-top:20px">
+
+            <button class="music-btn" onclick="previousSong()">
+              ⏮ Previous
+            </button>
+
+            <button class="music-btn" id="playButton" onclick="toggleMusic()">
+              ⏸ Pause
+            </button>
+
+            <button class="music-btn" onclick="nextSong()">
+              Next ⏭
+            </button>
+
+          </div>
+
+          <div class="volume-box">
+            🔊
+            <input type="range"
+                   id="volumeControl"
+                   min="0"
+                   max="1"
+                   step="0.05"
+                   value="0.45">
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- PHOTOS -->
+
+      <section id="memoriesSection">
+
+        <h2 class="section-title">
+          Kuch Beautiful Memories 📸
+        </h2>
+
+        <p class="section-subtitle">
+          Har photo ke andar ek chhota sa surprise chhupa hai...
+          <br>
+          Photo par click karo. ❤️
+        </p>
+
+        <div class="gallery-controls">
+
+          <button class="small-btn"
+                  onclick="shufflePhotos()">
+            🔀 Shuffle Memories
+          </button>
+
+        </div>
+
+        <div class="photo-gallery"
+             id="photoGallery">
+        </div>
+
+      </section>
+
+
+      <!-- SHAYARI -->
+
+      <section>
+
+        <h2 class="section-title">
+          Sirf Tumhare Liye ✨
+        </h2>
+
+        <div class="shayari-box">
+
+          <p class="shayari-text">
+
+            "Tumhari muskurahat meri aadat si ban gayi hai,
+            <br>
+            Tumhari baatein meri zarurat si ban gayi hain.
+            <br><br>
+            Pata nahi mohabbat ko kya naam doon,
+            <br>
+            Bas itna jaanta hoon...
+            <br>
+            Tum meri zindagi ki sabse khoobsurat baat ban gayi ho. ❤️"
+
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- CLICKABLE SURPRISES -->
+
+      <section>
+
+        <h2 class="section-title">
+          Kajal Ke 4 Secret Surprises 🎁
+        </h2>
+
+        <p class="section-subtitle">
+          Har box par click karna allowed hai... aur recommended bhi. 😄
+        </p>
+
+        <div class="surprise-grid">
+
+          <div class="surprise-card"
+               onclick="toggleSurprise('surprise1')">
+
+            <div class="emoji">🌹</div>
+
+            <h3>Secret #1</h3>
+
+            <div class="surprise-message"
+                 id="surprise1">
+
+              Tum beautiful sirf dikhne me nahi ho...
+              Tumhari simplicity aur personality bhi equally beautiful hai. ❤️
+
+            </div>
+
+          </div>
+
+
+          <div class="surprise-card"
+               onclick="toggleSurprise('surprise2')">
+
+            <div class="emoji">✨</div>
+
+            <h3>Secret #2</h3>
+
+            <div class="surprise-message"
+                 id="surprise2">
+
+              Tumhari ek smile kisi normal moment ko
+              bhi special memory bana sakti hai.
+
+            </div>
+
+          </div>
+
+
+          <div class="surprise-card"
+               onclick="toggleSurprise('surprise3')">
+
+            <div class="emoji">💌</div>
+
+            <h3>Secret #3</h3>
+
+            <div class="surprise-message"
+                 id="surprise3">
+
+              Agar tumhe ek word me describe karna ho,
+              to shayad word "Kajal" hi best description hoga...
+              because you are simply yourself. ❤️
+
+            </div>
+
+          </div>
+
+
+          <div class="surprise-card"
+               onclick="toggleSurprise('surprise4')">
+
+            <div class="emoji">👑</div>
+
+            <h3>Secret #4</h3>
+
+            <div class="surprise-message"
+                 id="surprise4">
+
+              Is website ka main reason ek hi hai:
+              tumhe ye feel karwana ki tum kisi ke liye
+              genuinely bahut special ho.
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- LOVE GAME -->
+
+      <section>
+
+        <h2 class="section-title">
+          Love Challenge 🎮
+        </h2>
+
+        <p class="section-subtitle">
+          Kajal, final surprise unlock karne se pehle
+          ye challenges complete karo.
+        </p>
+
+        <div class="game-box">
+
+          <div class="task" id="singleTask">
+            <div id="taskNumber" style="color:#ffb3c7;font-weight:bold;margin-bottom:8px">
+              Challenge 1 of 4
+            </div>
+            <div id="taskText" style="font-size:18px;line-height:1.7">
+              ❤️ Is website ko dekhte hue ek smile deni hai.
+            </div>
+          </div>
+
+          <button class="main-button"
+                  id="completeTaskButton"
+                  style="margin-top:20px"
+                  onclick="completeCurrentTask()">
+            Complete This Challenge ❤️
+          </button>
+
+          <div class="game-result" id="challengeResult"></div>
+        </div>
+
+      </section>
+
+
+      <!-- QUIZ -->
+
+      <section>
+
+        <h2 class="section-title">
+          Ek Chhota Sa Question 🤭
+        </h2>
+
+        <div class="game-box">
+
+          <h3>
+            Is website ki sabse beautiful person kaun hai?
+          </h3>
+
+          <div class="quiz-options">
+
+            <button class="quiz-option"
+                    onclick="wrongAnswer()">
+              Option A: Koi aur
+            </button>
+
+            <button class="quiz-option"
+                    onclick="correctAnswer()">
+              Option B: Kajal ❤️
+            </button>
+
+            <button class="quiz-option"
+                    onclick="wrongAnswer()">
+              Option C: Definitely someone else
+            </button>
+
+          </div>
+
+          <div class="game-result"
+               id="quizResult">
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- FINAL PROPOSAL -->
+
+      <section id="proposalSection">
+
+        <div class="proposal-box">
+
+          <div class="intro-heart">
+            💖
+          </div>
+
+          <h2>
+            Kajal...
+          </h2>
+
+          <p>
+
+            Main perfect nahi hoon.
+            <br>
+            Shayad har waqt perfect words bhi na bol paun.
+            <br><br>
+
+            Lekin agar tum meri zindagi ka hissa bano,
+            to main har din tumhe ye feel karane ki
+            poori koshish karunga ki tum kitni special ho.
+            <br><br>
+
+            To ek simple sa question hai...
+
+          </p>
+
+          <h2>
+            Will You Be Mine? ❤️
+          </h2>
+
+          <button class="yes-btn"
+                  onclick="sayYes()">
+
+            YES ❤️
+
+          </button>
+
+          <div class="final-message"
+               id="finalMessage">
+
+            ❤️✨ YAYYYY!!! ✨❤️
+            <br><br>
+
+            Kajal ❤️ Sandeep
+            <br>
+            Ek beautiful beginning...
+            <br><br>
+
+            Aur haan...
+            <br>
+            Ye sirf ek website nahi thi.
+            <br>
+            Ye tumhare liye banaya gaya ek special surprise tha. ❤️
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- PHOTO MODAL -->
+
+  <div id="photoModal">
+
+    <button class="close-modal"
+            onclick="closePhoto()">
+      ×
+    </button>
+
+    <img id="modalImage" src="" alt="Memory">
+
+  </div>
+
+
+  <script>
+
+    /* ==========================================
+       GITHUB ASSETS
+    ========================================== */
+
+    const BASE_URL =
+      "https://san78141.github.io/kajal-proposal-music/";
+
+
+    /* ==========================================
+       MUSIC LOGIC
+       Song 1 = background music
+       Song 2-4 = selected special songs
+    ========================================== */
+
+    const backgroundSong = BASE_URL + "song1.mp3";
+
+    const specialSongs = [
+      { name: "Song 2 💕", url: BASE_URL + "song2.mp3" },
+      { name: "Song 3 🌹", url: BASE_URL + "song3.mp3" },
+      { name: "Song 4 ✨", url: BASE_URL + "song4.mp3" }
+    ];
+
+    /* ==========================================
+       6 PHOTOS
+    ========================================== */
+
+    const photos = [
+
+      {
+        file: "photo1.jpg",
+        title: "Beautiful Kajal ❤️",
+        message: "Ek photo... aur ek hazaar reasons to smile."
+      },
+      {
+        file: "photo2.jpg",
+        title: "That Special Smile ✨",
+        message: "Tumhari smile kisi bhi din ko better bana sakti hai."
+      },
+      {
+        file: "photo3.jpg",
+        title: "A Beautiful Memory 💕",
+        message: "Kuch moments explain nahi kiye jaate, bas feel kiye jaate hain."
+      },
+      {
+        file: "photo4.jpg",
+        title: "Simply Gorgeous 🌹",
+        message: "Beauty ka matlab kabhi-kabhi bas naturally yourself hona hota hai."
+      },
+      {
+        file: "photo5.jpg",
+        title: "My Favourite View ❤️",
+        message: "Kuch photos repeatedly dekhne ka mann karta hai."
+      },
+      {
+        file: "photo6.jpg",
+        title: "One More Beautiful Memory 💖",
+        message: "Aur ye story abhi khatam nahi hui..."
+      }
+    ];
+
+    /* ==========================================
+       VARIABLES
+    ========================================== */
+
+    let currentSpecialSong = 0;
+    let experienceStarted = false;
+    let specialSongActive = false;
+
+    const music = document.getElementById("backgroundMusic");
+    const specialMusic = document.getElementById("specialMusic");
+    const songName = document.getElementById("songName");
+    const playButton = document.getElementById("playButton");
+
+    music.src = backgroundSong;
+
+    /* ==========================================
+       START EXPERIENCE
+       First user click is required for mobile audio
+    ========================================== */
+
+    function startExperience() {
+      if (experienceStarted) return;
+
+      experienceStarted = true;
+
+      document.getElementById("introScreen").style.display = "none";
+      document.getElementById("mainWebsite").style.display = "block";
+
+      loadPhotos();
+      startBackgroundMusic();
+
+      setTimeout(function() {
+        document.getElementById("mainWebsite").scrollIntoView({
+          behavior: "smooth"
+        });
+      }, 100);
+    }
+
+    /* ==========================================
+       BACKGROUND SONG 1
+    ========================================== */
+
+    function startBackgroundMusic() {
+      specialMusic.pause();
+      specialSongActive = false;
+
+      songName.textContent = "Background Music: Song 1 ❤️";
+      music.volume = Number(document.getElementById("volumeControl").value);
+
+      music.play().then(function() {
+        playButton.textContent = "⏸ Pause";
+      }).catch(function() {
+        songName.textContent = "Tap Play to start the background music 🎵";
+        playButton.textContent = "▶ Play";
+      });
+    }
+
+    function resumeBackgroundMusic() {
+      if (!experienceStarted) return;
+
+      specialMusic.pause();
+      specialSongActive = false;
+
+      songName.textContent = "Background Music: Song 1 ❤️";
+
+      music.play().then(function() {
+        playButton.textContent = "⏸ Pause";
+      }).catch(function() {
+        playButton.textContent = "▶ Play";
+      });
+    }
+
+    /* ==========================================
+       SONG 2 / 3 / 4
+    ========================================== */
+
+    function selectSpecialSong(index) {
+      currentSpecialSong = index;
+      specialSongActive = true;
+
+      music.pause();
+      specialMusic.pause();
+      specialMusic.currentTime = 0;
+      specialMusic.src = specialSongs[index].url;
+      specialMusic.volume = Number(document.getElementById("volumeControl").value);
+
+      songName.textContent = "Now Playing: " + specialSongs[index].name;
+
+      specialMusic.play().then(function() {
+        playButton.textContent = "⏸ Pause";
+      }).catch(function() {
+        songName.textContent = "Tap the song button again to play 🎵";
+        playButton.textContent = "▶ Play";
+      });
+    }
+
+    function nextSong() {
+      currentSpecialSong =
+        (currentSpecialSong + 1) % specialSongs.length;
+      selectSpecialSong(currentSpecialSong);
+    }
+
+    function previousSong() {
+      currentSpecialSong =
+        (currentSpecialSong - 1 + specialSongs.length) %
+        specialSongs.length;
+      selectSpecialSong(currentSpecialSong);
+    }
+
+    /* If Song 2/3/4 ends, Song 1 resumes */
+    specialMusic.addEventListener("ended", function() {
+      resumeBackgroundMusic();
+    });
+
+    function toggleMusic() {
+      if (specialSongActive) {
+        if (specialMusic.paused) {
+          music.pause();
+          specialMusic.play().then(function() {
+            playButton.textContent = "⏸ Pause";
+          });
+        } else {
+          /* User requested: when special songs stop, Song 1 continues */
+          specialMusic.pause();
+          resumeBackgroundMusic();
+        }
+      } else {
+        if (music.paused) {
+          startBackgroundMusic();
+        } else {
+          music.pause();
+          playButton.textContent = "▶ Play";
+          songName.textContent = "Background Music Paused";
+        }
+      }
+    }
+
+    document.getElementById("volumeControl")
+      .addEventListener("input", function() {
+        const value = Number(this.value);
+        music.volume = value;
+        specialMusic.volume = value;
+      });
+
+    music.volume = 0.45;
+    specialMusic.volume = 0.45;
+
+    /* ==========================================
+       LOAD PHOTOS
+    ========================================== */
+
+    function loadPhotos() {
+
+      const gallery =
+        document.getElementById("photoGallery");
+
+      gallery.innerHTML = "";
+
+      photos.forEach(function(photo, index) {
+
+        const card =
+          document.createElement("div");
+
+        card.className =
+          "photo-card";
+
+        card.onclick =
+          function() {
+
+            card.classList.remove("heartbeat");
+
+            void card.offsetWidth;
+
+            card.classList.add("heartbeat");
+
+            openPhoto(
+              BASE_URL + photo.file
+            );
+
+            createPhotoHearts(card);
+
+          };
+
+
+        card.innerHTML = `
+
+          <img
+            src="${BASE_URL + photo.file}"
+            alt="${photo.title}"
+            loading="lazy"
+          >
+
+          <div class="photo-overlay"></div>
+
+          <div class="inside-heart"
+               style="
+                 top:12%;
+                 right:12%;
+                 font-size:28px;
+                 animation-delay:${index * .2}s;
+               ">
+            ❤️
+          </div>
+
+          <div class="inside-heart"
+               style="
+                 top:40%;
+                 left:10%;
+                 font-size:18px;
+                 animation-delay:${index * .4}s;
+               ">
+            💕
+          </div>
+
+          <div class="photo-text">
+
+            <h3>${photo.title}</h3>
+
+            <p>${photo.message}</p>
+
+          </div>
+
+        `;
+
+        gallery.appendChild(card);
+
+      });
+
+    }
+
+
+    /* ==========================================
+       PHOTO SHUFFLE
+    ========================================== */
+
+    function shufflePhotos() {
+
+      for (
+        let i = photos.length - 1;
+        i > 0;
+        i--
+      ) {
+
+        const j =
+          Math.floor(
+            Math.random() * (i + 1)
+          );
+
+        [
+          photos[i],
+          photos[j]
+        ] =
+        [
+          photos[j],
+          photos[i]
+        ];
+
+      }
+
+      const gallery =
+        document.getElementById("photoGallery");
+
+      gallery.style.opacity = "0";
+      gallery.style.transform = "scale(.96)";
+
+      setTimeout(function() {
+
+        loadPhotos();
+
+        gallery.style.opacity = "1";
+        gallery.style.transform = "scale(1)";
+        gallery.style.transition = ".5s";
+
+      }, 300);
+
+    }
+
+
+    /* ==========================================
+       HEARTS ON PHOTO CLICK
+    ========================================== */
+
+    function createPhotoHearts(card) {
+
+      for (
+        let i = 0;
+        i < 8;
+        i++
+      ) {
+
+        const heart =
+          document.createElement("span");
+
+        heart.textContent = "❤️";
+
+        heart.style.position =
+          "absolute";
+
+        heart.style.left =
+          Math.random() * 80 + 10 + "%";
+
+        heart.style.top =
+          Math.random() * 80 + 10 + "%";
+
+        heart.style.fontSize =
+          Math.random() * 20 + 15 + "px";
+
+        heart.style.zIndex = "10";
+
+        heart.style.pointerEvents = "none";
+
+        heart.style.transition = "1s";
+
+        card.appendChild(heart);
+
+        setTimeout(function() {
+
+          heart.style.transform =
+            "translateY(-70px) scale(1.5)";
+
+          heart.style.opacity = "0";
+
+        }, 50);
+
+        setTimeout(function() {
+
+          heart.remove();
+
+        }, 1100);
+
+      }
+
+    }
+
+
+    /* ==========================================
+       PHOTO MODAL
+    ========================================== */
+
+    function openPhoto(src) {
+
+      const modal =
+        document.getElementById("photoModal");
+
+      document.getElementById("modalImage").src =
+        src;
+
+      modal.style.display =
+        "flex";
+
+    }
+
+
+    function closePhoto() {
+
+      document.getElementById("photoModal")
+        .style.display = "none";
+
+    }
+
+
+    /* ==========================================
+       SURPRISES
+    ========================================== */
+
+    function toggleSurprise(id) {
+
+      const item =
+        document.getElementById(id);
+
+      item.style.display =
+        item.style.display === "block"
+          ? "none"
+          : "block";
+
+    }
+
+
+    /* ==========================================
+       SEQUENTIAL CHALLENGES
+       One task appears at a time.
+    ========================================== */
+
+    const challenges = [
+      "❤️ Is website ko dekhte hue ek smile deni hai.",
+      "💕 Apni favourite photo choose karni hai aur us par click karna hai.",
+      "🌹 Ek baar Sandeep ka naam smile ke saath sochna hai.",
+      "💌 Final proposal ke liye ready hona hai."
+    ];
+
+    let currentChallenge = 0;
+
+    function completeCurrentTask() {
+      const result = document.getElementById("challengeResult");
+      const taskNumber = document.getElementById("taskNumber");
+      const taskText = document.getElementById("taskText");
+      const button = document.getElementById("completeTaskButton");
+
+      result.innerHTML = "✨ Challenge complete! ❤️";
+      celebrate();
+
+      setTimeout(function() {
+        currentChallenge++;
+
+        if (currentChallenge < challenges.length) {
+          taskNumber.textContent =
+            "Challenge " + (currentChallenge + 1) +
+            " of " + challenges.length;
+
+          taskText.textContent = challenges[currentChallenge];
+
+          result.innerHTML =
+            "Next challenge unlocked... 🔓❤️";
+
+          document.getElementById("singleTask")
+            .classList.remove("heartbeat");
+
+          void document.getElementById("singleTask").offsetWidth;
+
+          document.getElementById("singleTask")
+            .classList.add("heartbeat");
+
+        } else {
+          taskNumber.textContent = "All Challenges Completed 🎉";
+          taskText.innerHTML =
+            "❤️ Kajal, tumne saare challenges complete kar liye! " +
+            "Ab final surprise unlock ho gaya hai.";
+
+          button.textContent = "Go To Final Surprise 💖";
+          button.onclick = function() {
+            document.getElementById("proposalSection")
+              .scrollIntoView({ behavior: "smooth" });
+          };
+
+          result.innerHTML =
+            "🔓 Final surprise unlocked! ❤️";
+        }
+      }, 850);
+    }
+
+    /* ==========================================
+       QUIZ
+    ========================================== */
+
+    function correctAnswer() {
+
+      document.getElementById("quizResult")
+        .innerHTML =
+        "Correct! Obviously Kajal is the right answer. ❤️👑";
+
+      celebrate();
+
+    }
+
+
+    function wrongAnswer() {
+
+      document.getElementById("quizResult")
+        .innerHTML =
+        "Hmm... socho phir se! Correct answer shayad Kajal hai. 😄❤️";
+
+    }
+
+
+    /* ==========================================
+       FINAL YES
+    ========================================== */
+
+    function sayYes() {
+
+      document.getElementById("finalMessage")
+        .style.display = "block";
+
+      celebrate();
+
+      setTimeout(function() {
+
+        document
+          .getElementById("finalMessage")
+          .scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+      }, 200);
+
+    }
+
+
+    /* ==========================================
+       CELEBRATION
+    ========================================== */
+
+    function celebrate() {
+
+      for (
+        let i = 0;
+        i < 35;
+        i++
+      ) {
+
+        setTimeout(function() {
+
+          const heart =
+            document.createElement("div");
+
+          heart.className =
+            "celebration-heart";
+
+          heart.textContent =
+            ["❤️", "💕", "💖", "🌹", "✨"][
+              Math.floor(
+                Math.random() * 5
+              )
+            ];
+
+          heart.style.left =
+            Math.random() * 100 + "vw";
+
+          heart.style.animationDuration =
+            (Math.random() * 2 + 2.5) + "s";
+
+          document.body.appendChild(heart);
+
+          setTimeout(function() {
+
+            heart.remove();
+
+          }, 5000);
+
+        }, i * 100);
+
+      }
+
+    }
+
+
+    /* ==========================================
+       BACKGROUND FLOATING HEARTS
+    ========================================== */
+
+    setInterval(function() {
+
+      const heart =
+        document.createElement("div");
+
+      heart.className =
+        "floating-heart";
+
+      heart.textContent =
+        Math.random() > .5
+          ? "❤️"
+          : "💕";
+
+      heart.style.left =
+        Math.random() * 100 + "vw";
+
+      heart.style.fontSize =
+        Math.random() * 25 + 15 + "px";
+
+      heart.style.animationDuration =
+        Math.random() * 5 + 7 + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(function() {
+
+        heart.remove();
+
+      }, 13000);
+
+    }, 1500);
+
+  </script>
+
+</body>
+</html>
