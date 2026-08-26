@@ -1,1761 +1,898 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-  <base target="_top">
-
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-  <title>A Secret For Kajal ❤️</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, #481126 0%, #16060d 45%, #08080b 100%);
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ===============================
-       FLOATING HEARTS
-    =============================== */
-
-    .floating-heart {
-      position: fixed;
-      pointer-events: none;
-      z-index: 1;
-      animation: floatHeart linear forwards;
-      opacity: 0;
-    }
-
-    @keyframes floatHeart {
-
-      0% {
-        transform: translateY(100vh) rotate(0deg) scale(.6);
-        opacity: 0;
-      }
-
-      15% {
-        opacity: .8;
-      }
-
-      100% {
-        transform: translateY(-120px) rotate(360deg) scale(1.2);
-        opacity: 0;
-      }
-
-    }
-
-    /* ===============================
-       INTRO
-    =============================== */
-
-    #introScreen {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .intro-box {
-      max-width: 650px;
-      width: 100%;
-      padding: 50px 30px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 30px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 25px 80px rgba(0,0,0,.45);
-    }
-
-    .intro-heart {
-      font-size: 70px;
-      animation: heartBeat 1.2s infinite;
-      margin-bottom: 20px;
-    }
-
-    @keyframes heartBeat {
-
-      0% {
-        transform: scale(1);
-      }
-
-      25% {
-        transform: scale(1.25);
-      }
-
-      50% {
-        transform: scale(1);
-      }
-
-      75% {
-        transform: scale(1.18);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-
-    }
-
-    .intro-box h1 {
-      font-size: clamp(32px, 7vw, 62px);
-      margin-bottom: 20px;
-    }
-
-    .intro-box p {
-      color: #d8c4ca;
-      line-height: 1.7;
-      font-size: 17px;
-      margin-bottom: 30px;
-    }
-
-    .main-button {
-      border: none;
-      cursor: pointer;
-      padding: 16px 30px;
-      border-radius: 50px;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      background: linear-gradient(135deg, #ff1e5a, #ff4b81);
-      box-shadow: 0 12px 35px rgba(255,30,90,.35);
-      transition: .3s;
-    }
-
-    .main-button:hover {
-      transform: translateY(-3px) scale(1.04);
-    }
-
-    /* ===============================
-       MAIN WEBSITE
-    =============================== */
-
-    #mainWebsite {
-      display: none;
-      position: relative;
-      z-index: 5;
-      padding-bottom: 60px;
-    }
-
-    .container {
-      max-width: 1050px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-
-    section {
-      margin-bottom: 70px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(28px, 5vw, 42px);
-      margin-bottom: 15px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #c7b3ba;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-
-    /* ===============================
-       HERO
-    =============================== */
-
-    .hero-card {
-      text-align: center;
-      padding: 55px 25px;
-      border-radius: 30px;
-      background:
-        linear-gradient(135deg,
-        rgba(255,30,90,.12),
-        rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.12);
-    }
-
-    .hero-card h1 {
-      font-size: clamp(38px, 8vw, 70px);
-      margin-bottom: 15px;
-    }
-
-    .hero-card .names {
-      color: #ff6d95;
-    }
-
-    .hero-card p {
-      color: #d7c7cc;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    /* ===============================
-       MUSIC PLAYER
-    =============================== */
-
-    .music-player {
-      max-width: 750px;
-      margin: 0 auto;
-      padding: 25px;
-      border-radius: 25px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-    }
-
-    .song-name {
-      text-align: center;
-      color: #ffb3c7;
-      margin-bottom: 20px;
-      font-weight: bold;
-      font-size: 17px;
-    }
-
-    .music-controls {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .music-btn {
-      border: none;
-      cursor: pointer;
-      padding: 13px 22px;
-      border-radius: 50px;
-      color: white;
-      background: linear-gradient(135deg, #ff1e5a, #ff4d83);
-      font-size: 15px;
-      font-weight: bold;
-      transition: .25s;
-    }
-
-    .music-btn:hover {
-      transform: scale(1.05);
-    }
-
-    .volume-box {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    #volumeControl {
-      width: min(100%, 350px);
-    }
-
-    /* ===============================
-       PHOTO GALLERY
-    =============================== */
-
-    .gallery-controls {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .small-btn {
-      border: none;
-      cursor: pointer;
-      padding: 12px 22px;
-      border-radius: 30px;
-      color: white;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.15);
-    }
-
-    .photo-gallery {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-    }
-
-    .photo-card {
-      position: relative;
-      height: 330px;
-      border-radius: 24px;
-      overflow: hidden;
-      cursor: pointer;
-      background: #151116;
-      border: 2px solid rgba(255,255,255,.08);
-      transition: .45s;
-    }
-
-    .photo-card:hover {
-      transform: translateY(-10px) rotate(1deg);
-      border-color: rgba(255,70,120,.6);
-      box-shadow: 0 20px 50px rgba(255,20,90,.22);
-    }
-
-    .photo-card.heartbeat {
-      animation: photoBeat 1.1s ease-in-out;
-    }
-
-    @keyframes photoBeat {
-
-      0% {
-        transform: scale(1);
-      }
-
-      25% {
-        transform: scale(1.06);
-      }
-
-      45% {
-        transform: scale(.98);
-      }
-
-      65% {
-        transform: scale(1.04);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: 1s;
-    }
-
-    .photo-card:hover img {
-      transform: scale(1.08);
-    }
-
-    .photo-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          to top,
-          rgba(20,0,8,.85),
-          transparent 60%
-        );
-    }
-
-    .photo-text {
-      position: absolute;
-      bottom: 20px;
-      left: 18px;
-      right: 18px;
-      z-index: 3;
-    }
-
-    .photo-text h3 {
-      font-size: 20px;
-    }
-
-    .photo-text p {
-      color: #f0ccd7;
-      margin-top: 7px;
-      font-size: 14px;
-    }
-
-    /* HEARTS INSIDE PHOTOS */
-
-    .inside-heart {
-      position: absolute;
-      z-index: 4;
-      pointer-events: none;
-      animation: insideFloat 3s ease-in-out infinite;
-      opacity: .9;
-    }
-
-    @keyframes insideFloat {
-
-      0%, 100% {
-        transform: translateY(0) rotate(-10deg);
-      }
-
-      50% {
-        transform: translateY(-20px) rotate(10deg);
-      }
-
-    }
-
-    /* ===============================
-       SHAYARI
-    =============================== */
-
-    .shayari-box {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      padding: 45px 25px;
-      border-radius: 30px;
-      background:
-        linear-gradient(135deg,
-        rgba(255,30,90,.12),
-        rgba(255,255,255,.04));
-      border: 1px solid rgba(255,255,255,.1);
-    }
-
-    .shayari-text {
-      font-size: clamp(20px, 3vw, 27px);
-      line-height: 1.9;
-      color: #ffe5ed;
-    }
-
-    /* ===============================
-       SURPRISE CARDS
-    =============================== */
-
-    .surprise-grid {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .surprise-card {
-      min-height: 180px;
-      cursor: pointer;
-      padding: 25px;
-      border-radius: 24px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      transition: .3s;
-    }
-
-    .surprise-card:hover {
-      transform: translateY(-8px);
-      background: rgba(255,50,100,.1);
-    }
-
-    .surprise-card .emoji {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .surprise-message {
-      display: none;
-      margin-top: 12px;
-      color: #ffd9e4;
-      line-height: 1.6;
-    }
-
-    /* ===============================
-       GAME / TASKS
-    =============================== */
-
-    .game-box {
-      max-width: 700px;
-      margin: auto;
-      padding: 30px;
-      border-radius: 28px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      text-align: center;
-    }
-
-    .task {
-      margin: 15px 0;
-      padding: 16px;
-      text-align: left;
-      border-radius: 15px;
-      background: rgba(0,0,0,.2);
-    }
-
-    .task label {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #ead8dd;
-    }
-
-    .task input {
-      width: 19px;
-      height: 19px;
-      accent-color: #ff2f68;
-    }
-
-    .game-result {
-      margin-top: 20px;
-      color: #ffb2c7;
-      min-height: 25px;
-      font-weight: bold;
-    }
-
-    /* ===============================
-       LOVE QUIZ
-    =============================== */
-
-    .quiz-options {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .quiz-option {
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,.12);
-      padding: 15px;
-      border-radius: 15px;
-      background: rgba(255,255,255,.05);
-      color: white;
-      transition: .25s;
-    }
-
-    .quiz-option:hover {
-      background: rgba(255,30,90,.18);
-    }
-
-    /* ===============================
-       FINAL PROPOSAL
-    =============================== */
-
-    .proposal-box {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      padding: 55px 25px;
-      border-radius: 35px;
-      background:
-        linear-gradient(135deg,
-        #5b1028,
-        #2b0a17);
-      border: 1px solid rgba(255,255,255,.15);
-      box-shadow: 0 25px 80px rgba(255,20,90,.18);
-    }
-
-    .proposal-box h2 {
-      font-size: clamp(32px, 6vw, 52px);
-      margin-bottom: 20px;
-    }
-
-    .proposal-box p {
-      color: #f1cfd9;
-      line-height: 1.8;
-      margin-bottom: 25px;
-      font-size: 17px;
-    }
-
-    .yes-btn {
-      border: none;
-      cursor: pointer;
-      padding: 18px 45px;
-      border-radius: 50px;
-      background: linear-gradient(135deg, #ff174f, #ff5b88);
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      box-shadow: 0 15px 40px rgba(255,20,80,.35);
-      animation: yesPulse 1.8s infinite;
-    }
-
-    @keyframes yesPulse {
-
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.07);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-
-    }
-
-    .final-message {
-      display: none;
-      margin-top: 30px;
-      font-size: 22px;
-      color: #fff0f4;
-      line-height: 1.8;
-    }
-
-    /* ===============================
-       PHOTO MODAL
-    =============================== */
-
-    #photoModal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(0,0,0,.9);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    #photoModal img {
-      max-width: 95%;
-      max-height: 80vh;
-      border-radius: 20px;
-      box-shadow: 0 0 60px rgba(255,30,90,.3);
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      border: none;
-      background: transparent;
-      color: white;
-      font-size: 38px;
-      cursor: pointer;
-    }
-
-    /* ===============================
-       CELEBRATION
-    =============================== */
-
-    .celebration-heart {
-      position: fixed;
-      z-index: 200;
-      pointer-events: none;
-      font-size: 30px;
-      animation: celebration 4s linear forwards;
-    }
-
-    @keyframes celebration {
-
-      from {
-        transform: translateY(100vh) scale(.5);
-        opacity: 1;
-      }
-
-      to {
-        transform: translateY(-100px) scale(1.5) rotate(360deg);
-        opacity: 0;
-      }
-
-    }
-
-    @media (max-width: 600px) {
-
-      .container {
-        padding: 20px 15px;
-      }
-
-      .intro-box {
-        padding: 40px 20px;
-      }
-
-      .photo-card {
-        height: 400px;
-      }
-
-      .music-btn {
-        flex: 1;
-        min-width: 100px;
-      }
-
-    }
-
-  </style>
+<base target="_top">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Kajal ❤️ Sandeep</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+  :root{
+    --bg-deep:#0c0408;
+    --bg-mid:#2a0a16;
+    --wine:#4a1226;
+    --gold:#c9a44c;
+    --gold-light:#ecd7a0;
+    --rose:#b5384f;
+    --rose-light:#ff7288;
+    --ivory:#f6ece0;
+    --muted:#cbb1b8;
+    --paper:#f4e9d8;
+    --font-display:'Playfair Display', serif;
+    --font-body:'Jost', sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--font-body);
+    background:radial-gradient(circle at 50% 0%, var(--wine) 0%, var(--bg-mid) 42%, var(--bg-deep) 100%);
+    color:var(--ivory);
+    min-height:100vh;
+    overflow-x:hidden;
+    letter-spacing:.2px;
+  }
+
+  h1,h2,h3{font-family:var(--font-display);font-weight:600;}
+
+  /* ============ AMBIENT ============ */
+
+  .floating-heart{position:fixed;pointer-events:none;z-index:1;opacity:0;animation:floatHeart linear forwards;}
+  @keyframes floatHeart{
+    0%{transform:translateY(100vh) rotate(0deg) scale(.5);opacity:0;}
+    12%{opacity:.55;}
+    100%{transform:translateY(-120px) rotate(300deg) scale(1.1);opacity:0;}
+  }
+
+  .cursor-trail{position:fixed;pointer-events:none;z-index:9;font-size:14px;opacity:.9;animation:trailFade 1s ease forwards;}
+  @keyframes trailFade{to{transform:translateY(-30px) scale(.4);opacity:0;}}
+
+  /* ============ SEAL ============ */
+
+  .seal{
+    width:88px;height:88px;margin:0 auto 22px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 35% 30%, #d34a63, var(--rose) 55%, #7c1f31 100%);
+    box-shadow:0 10px 30px rgba(181,56,79,.45), inset 0 0 0 3px rgba(255,255,255,.12);
+    position:relative;
+  }
+  .seal::before{content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed rgba(255,255,255,.35);}
+  .seal span{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--gold-light);letter-spacing:1px;}
+  .seal.beat{animation:sealBeat 1.4s ease-in-out infinite;}
+  @keyframes sealBeat{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+  .seal.crack{animation:sealCrack .7s ease forwards;}
+  @keyframes sealCrack{0%{transform:scale(1) rotate(0);}40%{transform:scale(1.25) rotate(-8deg);}70%{transform:scale(.92) rotate(6deg);}100%{transform:scale(1) rotate(0);}}
+
+  /* ============ INTRO ============ */
+
+  #introScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;position:relative;z-index:10;}
+  .intro-box{max-width:620px;width:100%;padding:56px 34px;background:rgba(255,255,255,.05);border:1px solid rgba(201,164,76,.28);border-radius:22px;backdrop-filter:blur(10px);box-shadow:0 30px 90px rgba(0,0,0,.5);}
+  .eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--gold);margin-bottom:14px;font-weight:500;}
+  .intro-box h1{font-size:clamp(34px,7vw,58px);margin-bottom:16px;color:var(--ivory);}
+  .intro-box p{color:var(--muted);line-height:1.8;font-size:16.5px;margin-bottom:30px;}
+
+  .main-button{border:none;cursor:pointer;padding:16px 34px;border-radius:4px;color:var(--bg-deep);font-family:var(--font-body);font-size:15px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;background:linear-gradient(135deg, var(--gold-light), var(--gold));box-shadow:0 14px 34px rgba(201,164,76,.3);transition:.3s;}
+  .main-button:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(201,164,76,.42);}
+
+  /* ============ MAIN SITE ============ */
+
+  #mainWebsite{display:none;position:relative;z-index:5;padding-bottom:70px;}
+  .container{max-width:1000px;margin:auto;padding:30px 20px;}
+  section{margin-bottom:78px;}
+
+  .section-eyebrow{text-align:center;text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--gold);margin-bottom:10px;font-weight:500;}
+  .section-title{text-align:center;font-size:clamp(28px,5vw,42px);margin-bottom:14px;}
+  .section-subtitle{text-align:center;color:var(--muted);margin-bottom:32px;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto;}
+
+  /* HERO */
+  .hero-card{text-align:center;padding:60px 26px;border-radius:22px;background:linear-gradient(160deg, rgba(181,56,79,.14), rgba(255,255,255,.02));border:1px solid rgba(201,164,76,.22);}
+  .hero-card h1{font-size:clamp(38px,8vw,66px);margin-bottom:14px;}
+  .hero-card .names{color:var(--rose-light);}
+  .hero-card p{color:var(--muted);font-size:17.5px;line-height:1.8;max-width:520px;margin:auto;}
+
+  /* STORY TIMELINE */
+  .timeline{max-width:680px;margin:auto;position:relative;padding-left:28px;}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom, var(--gold), rgba(201,164,76,.1));}
+  .timeline-item{position:relative;padding-bottom:34px;opacity:0;transform:translateX(-14px);transition:.6s ease;}
+  .timeline-item.in-view{opacity:1;transform:translateX(0);}
+  .timeline-item::before{content:"";position:absolute;left:-28px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,164,76,.18);}
+  .timeline-item h4{font-size:16px;color:var(--gold-light);margin-bottom:6px;}
+  .timeline-item p{color:var(--muted);font-size:14.5px;line-height:1.6;}
+
+  /* MUSIC */
+  .music-player{max-width:720px;margin:0 auto;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(201,164,76,.22);}
+  .now-playing{text-align:center;margin-bottom:22px;}
+  .now-playing .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+  .now-playing .name{font-family:var(--font-display);font-size:19px;color:var(--ivory);margin-top:6px;}
+
+  .music-controls{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:22px;}
+  .play-toggle{width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg, var(--rose-light), var(--rose));color:white;font-size:18px;box-shadow:0 12px 28px rgba(181,56,79,.35);transition:.25s;}
+  .play-toggle:hover{transform:scale(1.06);}
+  .nav-mini{width:42px;height:42px;border-radius:50%;border:1px solid rgba(201,164,76,.3);cursor:pointer;background:rgba(255,255,255,.04);color:var(--ivory);font-size:14px;transition:.25s;}
+  .nav-mini:hover{background:rgba(201,164,76,.16);}
+
+  .song-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
+  .song-chip{border:1px solid rgba(201,164,76,.28);cursor:pointer;padding:13px 10px;border-radius:12px;background:rgba(255,255,255,.04);color:var(--ivory);font-family:var(--font-body);font-size:13.5px;text-align:center;transition:.25s;}
+  .song-chip:hover{background:rgba(181,56,79,.16);border-color:var(--rose-light);}
+  .song-chip.active{background:linear-gradient(135deg, rgba(181,56,79,.35), rgba(201,164,76,.2));border-color:var(--gold);}
+
+  .volume-box{margin-top:22px;text-align:center;}
+  .volume-box .vlabel{font-size:12px;color:var(--muted);margin-bottom:8px;}
+  #volumeControl{width:min(100%,320px);accent-color:var(--rose);}
+
+  /* GALLERY */
+  .gallery-controls{text-align:center;margin-bottom:12px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+  .small-btn{border:1px solid rgba(201,164,76,.3);cursor:pointer;padding:11px 22px;border-radius:30px;color:var(--ivory);background:rgba(255,255,255,.04);font-family:var(--font-body);font-size:13.5px;transition:.25s;}
+  .small-btn:hover{background:rgba(201,164,76,.14);}
+  .gallery-hint{text-align:center;color:var(--muted);font-size:12.5px;margin-bottom:22px;}
+
+  .photo-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;perspective:1000px;}
+  .photo-card{
+    position:relative;height:330px;border-radius:16px;overflow:hidden;cursor:pointer;
+    background:#150a0f;border:1px solid rgba(201,164,76,.2);
+    transition:transform .12s ease, box-shadow .3s ease, border-color .3s ease;
+    transform-style:preserve-3d;
+  }
+  .photo-card.spotlight{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,164,76,.35), 0 20px 50px rgba(201,164,76,.2);}
+  .spotlight-tag{position:absolute;top:12px;left:12px;z-index:5;background:linear-gradient(135deg, var(--gold-light), var(--gold));color:var(--bg-deep);font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:5px 10px;border-radius:20px;box-shadow:0 6px 16px rgba(201,164,76,.35);}
+  .photo-card:hover{box-shadow:0 22px 55px rgba(181,56,79,.28);}
+  .photo-card.heartbeat{animation:photoBeat 1.1s ease-in-out;}
+  @keyframes photoBeat{0%{transform:scale(1);}25%{transform:scale(1.05);}45%{transform:scale(.98);}65%{transform:scale(1.03);}100%{transform:scale(1);}}
+  .photo-card img{width:100%;height:100%;object-fit:cover;display:block;transition:1s;pointer-events:none;}
+  .photo-card:hover img{transform:scale(1.07);}
+  .photo-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(12,4,8,.92), transparent 62%);pointer-events:none;}
+  .photo-text{position:absolute;bottom:20px;left:18px;right:18px;z-index:3;pointer-events:none;}
+  .photo-text h3{font-size:19px;}
+  .photo-text p{color:var(--muted);margin-top:6px;font-size:13.5px;}
+
+  .inside-heart{position:absolute;z-index:4;pointer-events:none;animation:insideFloat 3s ease-in-out infinite;opacity:.85;}
+  @keyframes insideFloat{0%,100%{transform:translateY(0) rotate(-8deg);}50%{transform:translateY(-16px) rotate(8deg);}}
+
+  .like-btn{
+    position:absolute;top:12px;right:12px;z-index:6;
+    width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);
+    background:rgba(12,4,8,.55);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;
+    transition:.25s;
+  }
+  .like-btn:hover{transform:scale(1.1);background:rgba(181,56,79,.5);}
+  .like-btn.liked{background:linear-gradient(135deg, var(--rose-light), var(--rose));border-color:transparent;}
+  .like-count{position:absolute;top:52px;right:12px;z-index:6;font-size:11px;color:var(--gold-light);background:rgba(12,4,8,.5);padding:2px 8px;border-radius:10px;}
+
+  .zoom-hint{position:absolute;bottom:20px;right:16px;z-index:5;font-size:11px;color:var(--muted);opacity:0;transition:.25s;pointer-events:none;}
+  .photo-card:hover .zoom-hint{opacity:.8;}
+
+  /* MODAL / LIGHTBOX */
+  #photoModal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:20px;flex-direction:column;}
+  .modal-frame{position:relative;max-width:900px;width:100%;display:flex;flex-direction:column;align-items:center;}
+  #modalImage{max-width:100%;max-height:68vh;border-radius:14px;box-shadow:0 0 60px rgba(181,56,79,.35);transition:opacity .2s ease;}
+  .modal-caption{text-align:center;margin-top:18px;max-width:520px;}
+  .modal-caption h3{font-size:20px;color:var(--ivory);}
+  .modal-caption p{color:var(--muted);margin-top:6px;font-size:14px;}
+  .modal-counter{margin-top:10px;color:var(--gold);font-size:12.5px;letter-spacing:1px;}
+
+  .modal-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:white;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s;}
+  .modal-nav:hover{background:rgba(181,56,79,.4);}
+  .modal-prev{left:-64px;}
+  .modal-next{right:-64px;}
+  @media (max-width:760px){
+    .modal-prev{left:6px;} .modal-next{right:6px;}
+    .modal-nav{background:rgba(0,0,0,.4);}
+  }
+
+  .close-modal{position:absolute;top:20px;right:25px;border:none;background:transparent;color:white;font-size:36px;cursor:pointer;z-index:5;}
+
+  /* SHAYARI */
+  .shayari-box{max-width:800px;margin:auto;text-align:center;padding:50px 28px;border-radius:22px;background:linear-gradient(160deg, rgba(181,56,79,.13), rgba(255,255,255,.03));border:1px solid rgba(201,164,76,.22);position:relative;}
+  .quote-mark{font-family:var(--font-display);font-size:60px;color:var(--gold);line-height:0;opacity:.7;}
+  .shayari-text{font-family:var(--font-display);font-style:italic;font-size:clamp(19px,3vw,25px);line-height:2;color:var(--paper);margin-top:10px;}
+
+  /* JOURNEY / TASKS */
+  .journey-box{max-width:640px;margin:auto;padding:38px 30px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(201,164,76,.22);text-align:center;}
+  .progress-dots{display:flex;justify-content:center;gap:10px;margin-bottom:28px;}
+  .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18);transition:.3s;}
+  .dot.done{background:var(--gold);}
+  .dot.current{background:var(--rose-light);box-shadow:0 0 0 4px rgba(255,114,136,.2);}
+  .task-step{display:none;}
+  .task-step.visible{display:block;animation:taskIn .5s ease;}
+  @keyframes taskIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  .task-step .step-eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  .task-step h3{font-size:22px;margin-bottom:14px;color:var(--ivory);}
+  .task-step p{color:var(--muted);line-height:1.7;margin-bottom:24px;font-size:15px;}
+  .task-complete-btn{border:none;cursor:pointer;padding:14px 30px;border-radius:30px;background:linear-gradient(135deg, var(--rose-light), var(--rose));color:white;font-family:var(--font-body);font-size:14.5px;font-weight:600;letter-spacing:.4px;box-shadow:0 14px 32px rgba(181,56,79,.35);transition:.25s;}
+  .task-complete-btn:hover{transform:translateY(-2px);}
+  .journey-done-msg{color:var(--gold-light);font-weight:500;margin-top:6px;display:none;}
+
+  /* LOCKED SECTIONS */
+  .locked-section{display:none;}
+  .locked-section.unlocked{display:block;animation:sectionIn .7s ease;}
+  @keyframes sectionIn{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+  .surprise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .surprise-card{min-height:170px;cursor:pointer;padding:26px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(201,164,76,.2);transition:.3s;}
+  .surprise-card:hover{transform:translateY(-6px);border-color:var(--gold);background:rgba(181,56,79,.08);}
+  .surprise-card .emoji{font-size:34px;margin-bottom:14px;}
+  .surprise-card h3{font-size:17px;color:var(--gold-light);}
+  .surprise-message{display:none;margin-top:12px;color:var(--muted);line-height:1.65;font-size:14.5px;}
+
+  /* QUIZ */
+  .game-box{max-width:640px;margin:auto;padding:32px;border-radius:20px;background:rgba(255,255,255,.045);border:1px solid rgba(201,164,76,.22);text-align:center;}
+  .game-box h3{font-size:19px;margin-bottom:6px;color:var(--ivory);}
+  .quiz-options{display:grid;gap:12px;margin-top:20px;}
+  .quiz-option{cursor:pointer;border:1px solid rgba(201,164,76,.25);padding:15px;border-radius:12px;background:rgba(255,255,255,.035);color:var(--ivory);font-family:var(--font-body);font-size:14.5px;transition:.25s;}
+  .quiz-option:hover{background:rgba(181,56,79,.16);}
+  .game-result{margin-top:20px;color:var(--gold-light);min-height:24px;font-weight:500;font-size:14.5px;}
+
+  /* PROPOSAL */
+  .proposal-box{max-width:760px;margin:auto;text-align:center;padding:58px 28px;border-radius:26px;background:linear-gradient(160deg, #5b1028, #24080f);border:1px solid rgba(201,164,76,.3);box-shadow:0 30px 90px rgba(181,56,79,.2);}
+  .proposal-box h2{font-size:clamp(30px,6vw,48px);margin-bottom:18px;}
+  .proposal-box p{color:var(--paper);line-height:1.85;margin-bottom:22px;font-size:16.5px;}
+  .yes-btn{border:none;cursor:pointer;padding:18px 46px;border-radius:30px;background:linear-gradient(135deg, var(--gold-light), var(--gold));color:var(--bg-deep);font-family:var(--font-body);font-size:17px;font-weight:700;letter-spacing:.4px;box-shadow:0 16px 40px rgba(201,164,76,.4);animation:yesPulse 2s infinite;}
+  @keyframes yesPulse{0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
+  .final-message{display:none;margin-top:30px;font-family:var(--font-display);font-size:21px;color:var(--ivory);line-height:1.9;}
+
+  /* CELEBRATION */
+  .celebration-heart{position:fixed;z-index:200;pointer-events:none;font-size:28px;animation:celebration 4s linear forwards;}
+  @keyframes celebration{from{transform:translateY(100vh) scale(.5);opacity:1;}to{transform:translateY(-100px) scale(1.5) rotate(340deg);opacity:0;}}
+
+  footer.credit{text-align:center;color:rgba(203,177,184,.5);font-size:12px;letter-spacing:.5px;margin-top:10px;}
+
+  @media (max-width:600px){
+    .container{padding:20px 15px;}
+    .intro-box{padding:44px 22px;}
+    .photo-card{height:390px;}
+  }
+
+</style>
 </head>
-
-
 <body>
 
-
-  <!-- ===============================
-       INTRO SCREEN
-  ================================ -->
-
+  <!-- ============ INTRO ============ -->
   <div id="introScreen">
-
     <div class="intro-box">
-
-      <div class="intro-heart">❤️</div>
-
+      <div class="seal beat"><span>S&K</span></div>
+      <div class="eyebrow">Ek Chhota Sa Khat</div>
       <h1>Kajal...</h1>
-
       <p>
-        Mere paas tumhare liye ek chhota sa surprise hai...
+        Mere paas tumhare liye kuch hai — poora banaya hua, poora socha hua.
         <br><br>
-        Lekin ek warning hai...
-        <br>
-        Iske baad shayad tumhare face par smile aa jaye. ❤️
+        Ek warning zaroor hai: iske baad tumhare chehre par ek smile aane ki poori sambhavna hai. ❤️
       </p>
-
-      <button class="main-button"
-              onclick="startExperience()">
-        Click Here Kajal ❤️
-      </button>
-
+      <button class="main-button" onclick="startExperience()">Kholiye ❤️</button>
     </div>
-
   </div>
 
-
-  <!-- ===============================
-       MAIN WEBSITE
-  ================================ -->
-
+  <!-- ============ MAIN SITE ============ -->
   <main id="mainWebsite">
-
     <div class="container">
 
-
       <!-- HERO -->
-
       <section>
-
         <div class="hero-card">
-
-          <div class="intro-heart">❤️</div>
-
-          <h1>
-            Sandeep
-            <span class="names">❤️</span>
-            Kajal
-          </h1>
-
-          <p>
-            Kuch log zindagi me bas milte hain...
-            <br>
-            Aur kuch log zindagi ko special bana dete hain.
-            <br><br>
-            Kajal, tum mere liye un special logon me se ho.
-          </p>
-
+          <div class="seal"><span>S&K</span></div>
+          <h1>Sandeep <span class="names">❤️</span> Kajal</h1>
+          <p>Kuch log zindagi me bas milte hain, aur kuch log zindagi ko special bana dete hain. Kajal, tum mere liye un special logon me se ho.</p>
         </div>
-
       </section>
 
+      <!-- STORY TIMELINE -->
+      <section>
+        <div class="section-eyebrow">Thodi Si Kahani</div>
+        <h2 class="section-title">Ab Tak Ka Safar</h2>
+        <div class="timeline" id="storyTimeline">
+          <div class="timeline-item"><h4>Pehli Baar</h4><p>Jab pehli baar baat hui, tab andaza nahi tha ki ye itni special ho jayegi.</p></div>
+          <div class="timeline-item"><h4>Dheere Dheere</h4><p>Har chhoti baat, har hasi, dheere dheere ek aadat ban gayi.</p></div>
+          <div class="timeline-item"><h4>Aaj</h4><p>Aur aaj, ye poora khat sirf tumhare liye — kyunki ye kehna zaroori tha.</p></div>
+        </div>
+      </section>
 
       <!-- MUSIC -->
-
       <section>
-
-        <h2 class="section-title">
-          Our Love Playlist 🎵
-        </h2>
-
-        <p class="section-subtitle">
-          Song 1 background mein chalega. Song 2, 3 ya 4 select karne par background music pause hoga.
-          Special song band ya finish hote hi Song 1 automatically wapas chalega. ❤️
-        </p>
+        <div class="section-eyebrow">Sunte Chalein</div>
+        <h2 class="section-title">Humara Gaana</h2>
+        <p class="section-subtitle">Ye background me chalta rahega. Neeche se koi bhi special gaana suno — khatam hote hi ye wapas apne aap shuru ho jayega.</p>
 
         <div class="music-player">
-
-          <div class="song-name" id="songName">
-            Background Music: Song 1 ❤️
+          <div class="now-playing">
+            <div class="label">Ab Baj Raha Hai</div>
+            <div class="name" id="songName">Humara Gaana ❤️</div>
           </div>
 
-          <!-- Song 1: always the default background music -->
-          <audio id="backgroundMusic" preload="metadata" playsinline loop></audio>
+          <audio id="bgAudio" preload="metadata" loop playsinline></audio>
+          <audio id="selAudio" preload="none" playsinline></audio>
 
-          <!-- Song 2, 3, 4: selected songs -->
-          <audio id="specialMusic" preload="metadata" playsinline></audio>
-
-          <div class="quiz-options" id="playlistButtons">
-            <button class="quiz-option" onclick="selectSpecialSong(0)">🎵 Song 2</button>
-            <button class="quiz-option" onclick="selectSpecialSong(1)">💕 Song 3</button>
-            <button class="quiz-option" onclick="selectSpecialSong(2)">🌹 Song 4</button>
+          <div class="music-controls">
+            <button class="nav-mini" onclick="stepSpecial(-1)" title="Previous">◀</button>
+            <button class="play-toggle" id="playButton" onclick="togglePlayPause()">▶</button>
+            <button class="nav-mini" onclick="stepSpecial(1)" title="Next">▶</button>
           </div>
 
-          <div class="music-controls" style="margin-top:20px">
-
-            <button class="music-btn" onclick="previousSong()">
-              ⏮ Previous
-            </button>
-
-            <button class="music-btn" id="playButton" onclick="toggleMusic()">
-              ⏸ Pause
-            </button>
-
-            <button class="music-btn" onclick="nextSong()">
-              Next ⏭
-            </button>
-
-          </div>
+          <div class="song-grid" id="songGrid"></div>
 
           <div class="volume-box">
-            🔊
-            <input type="range"
-                   id="volumeControl"
-                   min="0"
-                   max="1"
-                   step="0.05"
-                   value="0.45">
+            <div class="vlabel">🔊 Volume</div>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.05" value="0.45">
           </div>
-
         </div>
-
       </section>
-
 
       <!-- PHOTOS -->
-
       <section id="memoriesSection">
-
-        <h2 class="section-title">
-          Kuch Beautiful Memories 📸
-        </h2>
-
-        <p class="section-subtitle">
-          Har photo ke andar ek chhota sa surprise chhupa hai...
-          <br>
-          Photo par click karo. ❤️
-        </p>
+        <div class="section-eyebrow">Kuch Pal, Hamesha Ke Liye</div>
+        <h2 class="section-title">Beautiful Memories</h2>
+        <p class="section-subtitle">Photo par click karke bada dekho, ❤️ dabao pasand aane par, ya double-tap karo. Modal ke andar bhi agli/pichli photo par jaa sakte ho.</p>
 
         <div class="gallery-controls">
-
-          <button class="small-btn"
-                  onclick="shufflePhotos()">
-            🔀 Shuffle Memories
-          </button>
-
+          <button class="small-btn" onclick="shufflePhotos()">🔀 Shuffle Memories</button>
+          <button class="small-btn" onclick="spotlightRandom()">✨ Aaj Ki Yaad</button>
         </div>
+        <div class="gallery-hint">Tip: photo ko double-click/double-tap karke like bhi kar sakte ho.</div>
 
-        <div class="photo-gallery"
-             id="photoGallery">
-        </div>
-
+        <div class="photo-gallery" id="photoGallery"></div>
       </section>
-
 
       <!-- SHAYARI -->
-
       <section>
-
-        <h2 class="section-title">
-          Sirf Tumhare Liye ✨
-        </h2>
-
+        <div class="section-eyebrow">Sirf Tumhare Liye</div>
+        <h2 class="section-title">Do Lafz</h2>
         <div class="shayari-box">
-
+          <div class="quote-mark">"</div>
           <p class="shayari-text">
-
-            "Tumhari muskurahat meri aadat si ban gayi hai,
-            <br>
-            Tumhari baatein meri zarurat si ban gayi hain.
+            Tumhari muskurahat meri aadat si ban gayi hai,
+            <br>Tumhari baatein meri zarurat si ban gayi hain.
             <br><br>
             Pata nahi mohabbat ko kya naam doon,
-            <br>
-            Bas itna jaanta hoon...
-            <br>
-            Tum meri zindagi ki sabse khoobsurat baat ban gayi ho. ❤️"
-
+            <br>Bas itna jaanta hoon —
+            <br>Tum meri zindagi ki sabse khoobsurat baat ban gayi ho.
           </p>
-
         </div>
-
       </section>
 
-
-      <!-- CLICKABLE SURPRISES -->
-
+      <!-- JOURNEY / TASKS -->
       <section>
+        <div class="section-eyebrow">Aage Badhne Se Pehle</div>
+        <h2 class="section-title">Teen Chhote Kadam</h2>
+        <p class="section-subtitle">Har kadam ke baad ek naya hissa khulega. Ek time par ek hi kadam dikhega.</p>
 
-        <h2 class="section-title">
-          Kajal Ke 4 Secret Surprises 🎁
-        </h2>
+        <div class="journey-box">
+          <div class="progress-dots" id="progressDots"></div>
 
-        <p class="section-subtitle">
-          Har box par click karna allowed hai... aur recommended bhi. 😄
-        </p>
+          <div class="task-step" data-step="0">
+            <div class="step-eyebrow">Kadam 1 / 3</div>
+            <h3>Ek Smile Do 🙂</h3>
+            <p>Is website ko dekhte hue, abhi ke liye, bas ek genuine smile do.</p>
+            <button class="task-complete-btn" onclick="completeTask(0, 'secretsSection')">Ho Gaya ❤️</button>
+          </div>
 
+          <div class="task-step" data-step="1">
+            <div class="step-eyebrow">Kadam 2 / 3</div>
+            <h3>Apni Favourite Chuno 💕</h3>
+            <p>Upar memories me se apni favourite photo ko ❤️ kar do.</p>
+            <button class="task-complete-btn" onclick="completeTask(1, 'quizSection')">Ho Gaya ❤️</button>
+          </div>
+
+          <div class="task-step" data-step="2">
+            <div class="step-eyebrow">Kadam 3 / 3</div>
+            <h3>Ek Deep Saans Lo 🌹</h3>
+            <p>Kyunki agla hissa thoda important hai. Ready ho?</p>
+            <button class="task-complete-btn" onclick="completeTask(2, 'proposalSection')">Ready Hoon ❤️</button>
+          </div>
+
+          <div class="journey-done-msg" id="journeyDoneMsg">🎉 Sab kadam poore! Neeche dekho...</div>
+        </div>
+      </section>
+
+      <!-- SECRETS -->
+      <section id="secretsSection" class="locked-section">
+        <div class="section-eyebrow">Khul Gaya</div>
+        <h2 class="section-title">Kajal Ke 4 Secrets</h2>
+        <p class="section-subtitle">Har box par click karna allowed hai — aur recommended bhi. 😄</p>
         <div class="surprise-grid">
-
-          <div class="surprise-card"
-               onclick="toggleSurprise('surprise1')">
-
-            <div class="emoji">🌹</div>
-
-            <h3>Secret #1</h3>
-
-            <div class="surprise-message"
-                 id="surprise1">
-
-              Tum beautiful sirf dikhne me nahi ho...
-              Tumhari simplicity aur personality bhi equally beautiful hai. ❤️
-
-            </div>
-
-          </div>
-
-
-          <div class="surprise-card"
-               onclick="toggleSurprise('surprise2')">
-
-            <div class="emoji">✨</div>
-
-            <h3>Secret #2</h3>
-
-            <div class="surprise-message"
-                 id="surprise2">
-
-              Tumhari ek smile kisi normal moment ko
-              bhi special memory bana sakti hai.
-
-            </div>
-
-          </div>
-
-
-          <div class="surprise-card"
-               onclick="toggleSurprise('surprise3')">
-
-            <div class="emoji">💌</div>
-
-            <h3>Secret #3</h3>
-
-            <div class="surprise-message"
-                 id="surprise3">
-
-              Agar tumhe ek word me describe karna ho,
-              to shayad word "Kajal" hi best description hoga...
-              because you are simply yourself. ❤️
-
-            </div>
-
-          </div>
-
-
-          <div class="surprise-card"
-               onclick="toggleSurprise('surprise4')">
-
-            <div class="emoji">👑</div>
-
-            <h3>Secret #4</h3>
-
-            <div class="surprise-message"
-                 id="surprise4">
-
-              Is website ka main reason ek hi hai:
-              tumhe ye feel karwana ki tum kisi ke liye
-              genuinely bahut special ho.
-
-            </div>
-
-          </div>
-
+          <div class="surprise-card" onclick="toggleSurprise('surprise1')"><div class="emoji">🌹</div><h3>Secret #1</h3><div class="surprise-message" id="surprise1">Tum beautiful sirf dikhne me nahi ho — tumhari simplicity aur personality bhi equally beautiful hai. ❤️</div></div>
+          <div class="surprise-card" onclick="toggleSurprise('surprise2')"><div class="emoji">✨</div><h3>Secret #2</h3><div class="surprise-message" id="surprise2">Tumhari ek smile kisi normal moment ko bhi special memory bana sakti hai.</div></div>
+          <div class="surprise-card" onclick="toggleSurprise('surprise3')"><div class="emoji">💌</div><h3>Secret #3</h3><div class="surprise-message" id="surprise3">Agar tumhe ek word me describe karna ho, to shayad word "Kajal" hi best description hoga. ❤️</div></div>
+          <div class="surprise-card" onclick="toggleSurprise('surprise4')"><div class="emoji">👑</div><h3>Secret #4</h3><div class="surprise-message" id="surprise4">Is website ka main reason ek hi hai: tumhe ye feel karwana ki tum kisi ke liye genuinely bahut special ho.</div></div>
         </div>
-
       </section>
-
-
-      <!-- LOVE GAME -->
-
-      <section>
-
-        <h2 class="section-title">
-          Love Challenge 🎮
-        </h2>
-
-        <p class="section-subtitle">
-          Kajal, final surprise unlock karne se pehle
-          ye challenges complete karo.
-        </p>
-
-        <div class="game-box">
-
-          <div class="task" id="singleTask">
-            <div id="taskNumber" style="color:#ffb3c7;font-weight:bold;margin-bottom:8px">
-              Challenge 1 of 4
-            </div>
-            <div id="taskText" style="font-size:18px;line-height:1.7">
-              ❤️ Is website ko dekhte hue ek smile deni hai.
-            </div>
-          </div>
-
-          <button class="main-button"
-                  id="completeTaskButton"
-                  style="margin-top:20px"
-                  onclick="completeCurrentTask()">
-            Complete This Challenge ❤️
-          </button>
-
-          <div class="game-result" id="challengeResult"></div>
-        </div>
-
-      </section>
-
 
       <!-- QUIZ -->
-
-      <section>
-
-        <h2 class="section-title">
-          Ek Chhota Sa Question 🤭
-        </h2>
-
+      <section id="quizSection" class="locked-section">
+        <div class="section-eyebrow">Khul Gaya</div>
+        <h2 class="section-title">Ek Chhota Sa Sawaal</h2>
         <div class="game-box">
-
-          <h3>
-            Is website ki sabse beautiful person kaun hai?
-          </h3>
-
+          <h3>Is website ki sabse beautiful person kaun hai?</h3>
           <div class="quiz-options">
-
-            <button class="quiz-option"
-                    onclick="wrongAnswer()">
-              Option A: Koi aur
-            </button>
-
-            <button class="quiz-option"
-                    onclick="correctAnswer()">
-              Option B: Kajal ❤️
-            </button>
-
-            <button class="quiz-option"
-                    onclick="wrongAnswer()">
-              Option C: Definitely someone else
-            </button>
-
+            <button class="quiz-option" onclick="wrongAnswer()">Option A: Koi Aur</button>
+            <button class="quiz-option" onclick="correctAnswer()">Option B: Kajal ❤️</button>
+            <button class="quiz-option" onclick="wrongAnswer()">Option C: Definitely Someone Else</button>
           </div>
-
-          <div class="game-result"
-               id="quizResult">
-          </div>
-
+          <div class="game-result" id="quizResult"></div>
         </div>
-
       </section>
 
-
-      <!-- FINAL PROPOSAL -->
-
-      <section id="proposalSection">
-
+      <!-- PROPOSAL -->
+      <section id="proposalSection" class="locked-section">
         <div class="proposal-box">
-
-          <div class="intro-heart">
-            💖
-          </div>
-
-          <h2>
-            Kajal...
-          </h2>
-
-          <p>
-
-            Main perfect nahi hoon.
-            <br>
-            Shayad har waqt perfect words bhi na bol paun.
-            <br><br>
-
-            Lekin agar tum meri zindagi ka hissa bano,
-            to main har din tumhe ye feel karane ki
-            poori koshish karunga ki tum kitni special ho.
-            <br><br>
-
-            To ek simple sa question hai...
-
-          </p>
-
-          <h2>
-            Will You Be Mine? ❤️
-          </h2>
-
-          <button class="yes-btn"
-                  onclick="sayYes()">
-
-            YES ❤️
-
-          </button>
-
-          <div class="final-message"
-               id="finalMessage">
-
-            ❤️✨ YAYYYY!!! ✨❤️
-            <br><br>
-
-            Kajal ❤️ Sandeep
-            <br>
-            Ek beautiful beginning...
-            <br><br>
-
-            Aur haan...
-            <br>
-            Ye sirf ek website nahi thi.
-            <br>
-            Ye tumhare liye banaya gaya ek special surprise tha. ❤️
-
-          </div>
-
+          <div class="seal beat"><span>S&K</span></div>
+          <h2>Kajal...</h2>
+          <p>Main perfect nahi hoon. Shayad har waqt perfect words bhi na bol paun.<br><br>Lekin agar tum meri zindagi ka hissa bano, to main har din tumhe ye feel karane ki poori koshish karunga ki tum kitni special ho.<br><br>To ek simple sa sawaal hai —</p>
+          <h2>Will You Be Mine? ❤️</h2>
+          <button class="yes-btn" onclick="sayYes()">YES ❤️</button>
+          <div class="final-message" id="finalMessage">❤️✨ YAYYYY!!! ✨❤️<br><br>Kajal ❤️ Sandeep — ek beautiful beginning...<br><br>Aur haan, ye sirf ek website nahi thi. Ye tumhare liye banaya gaya ek special surprise tha. ❤️</div>
         </div>
-
       </section>
 
-
+      <footer class="credit">Banaya gaya, pyaar se — Sandeep ❤️ Kajal</footer>
     </div>
-
   </main>
 
-
-  <!-- PHOTO MODAL -->
-
+  <!-- PHOTO MODAL / LIGHTBOX -->
   <div id="photoModal">
-
-    <button class="close-modal"
-            onclick="closePhoto()">
-      ×
-    </button>
-
-    <img id="modalImage" src="" alt="Memory">
-
+    <div class="modal-frame">
+      <button class="close-modal" onclick="closePhoto()">×</button>
+      <button class="modal-nav modal-prev" onclick="modalStep(-1)">‹</button>
+      <img id="modalImage" src="" alt="Memory">
+      <button class="modal-nav modal-next" onclick="modalStep(1)">›</button>
+      <div class="modal-caption">
+        <h3 id="modalTitle"></h3>
+        <p id="modalMessage"></p>
+        <div class="modal-counter" id="modalCounter"></div>
+      </div>
+    </div>
   </div>
 
+<script>
 
-  <script>
+  /* ============ ASSETS ============ */
+  const BASE_URL = "https://san78141.github.io/kajal-proposal-music/";
 
-    /* ==========================================
-       GITHUB ASSETS
-    ========================================== */
+  const backgroundSong = { name: "Humara Gaana ❤️", url: BASE_URL + "song1.mp3" };
+  const specialSongs = [
+    { name: "Special Song 1 💕", url: BASE_URL + "song2.mp3" },
+    { name: "Special Song 2 🌹", url: BASE_URL + "song3.mp3" },
+    { name: "Special Song 3 ✨", url: BASE_URL + "song4.mp3" }
+  ];
 
-    const BASE_URL =
-      "https://san78141.github.io/kajal-proposal-music/";
+  const photos = [
+    { file:"photo1.jpg", title:"Beautiful Kajal ❤️", message:"Ek photo... aur ek hazaar reasons to smile." },
+    { file:"photo2.jpg", title:"That Special Smile ✨", message:"Tumhari smile kisi bhi din ko better bana sakti hai." },
+    { file:"photo3.jpg", title:"A Beautiful Memory 💕", message:"Kuch moments explain nahi kiye jaate, bas feel kiye jaate hain." },
+    { file:"photo4.jpg", title:"Simply Gorgeous 🌹", message:"Beauty ka matlab kabhi-kabhi bas naturally yourself hona hota hai." },
+    { file:"photo5.jpg", title:"My Favourite View ❤️", message:"Kuch photos repeatedly dekhne ka mann karta hai." },
+    { file:"photo6.jpg", title:"One More Beautiful Memory 💖", message:"Aur ye story abhi khatam nahi hui..." }
+  ];
 
+  const likes = {};
+  photos.forEach(function(p){ likes[p.file] = 0; });
 
-    /* ==========================================
-       MUSIC LOGIC
-       Song 1 = background music
-       Song 2-4 = selected special songs
-    ========================================== */
+  let experienceStarted = false;
+  let activeMode = "bg";
+  let currentTaskIndex = 0;
+  const TOTAL_TASKS = 3;
+  let modalIndex = 0;
 
-    const backgroundSong = BASE_URL + "song1.mp3";
+  const bgAudio    = document.getElementById("bgAudio");
+  const selAudio   = document.getElementById("selAudio");
+  const songName   = document.getElementById("songName");
+  const playButton = document.getElementById("playButton");
+  const songGrid   = document.getElementById("songGrid");
 
-    const specialSongs = [
-      { name: "Song 2 💕", url: BASE_URL + "song2.mp3" },
-      { name: "Song 3 🌹", url: BASE_URL + "song3.mp3" },
-      { name: "Song 4 ✨", url: BASE_URL + "song4.mp3" }
-    ];
+  /* ============ START ============ */
+  function startExperience(){
+    if (experienceStarted) return;
+    experienceStarted = true;
 
-    /* ==========================================
-       6 PHOTOS
-    ========================================== */
+    document.getElementById("introScreen").style.display = "none";
+    document.getElementById("mainWebsite").style.display = "block";
 
-    const photos = [
+    loadPhotos();
+    buildSongGrid();
+    buildProgressDots();
+    showTask(0);
+    initTimelineObserver();
 
-      {
-        file: "photo1.jpg",
-        title: "Beautiful Kajal ❤️",
-        message: "Ek photo... aur ek hazaar reasons to smile."
-      },
-      {
-        file: "photo2.jpg",
-        title: "That Special Smile ✨",
-        message: "Tumhari smile kisi bhi din ko better bana sakti hai."
-      },
-      {
-        file: "photo3.jpg",
-        title: "A Beautiful Memory 💕",
-        message: "Kuch moments explain nahi kiye jaate, bas feel kiye jaate hain."
-      },
-      {
-        file: "photo4.jpg",
-        title: "Simply Gorgeous 🌹",
-        message: "Beauty ka matlab kabhi-kabhi bas naturally yourself hona hota hai."
-      },
-      {
-        file: "photo5.jpg",
-        title: "My Favourite View ❤️",
-        message: "Kuch photos repeatedly dekhne ka mann karta hai."
-      },
-      {
-        file: "photo6.jpg",
-        title: "One More Beautiful Memory 💖",
-        message: "Aur ye story abhi khatam nahi hui..."
-      }
-    ];
+    bgAudio.src = backgroundSong.url;
+    bgAudio.volume = 0.45;
+    selAudio.volume = 0.45;
+    playBackground();
 
-    /* ==========================================
-       VARIABLES
-    ========================================== */
+    setTimeout(function(){
+      document.getElementById("mainWebsite").scrollIntoView({ behavior:"smooth" });
+    }, 100);
+  }
 
-    let currentSpecialSong = 0;
-    let experienceStarted = false;
-    let specialSongActive = false;
-
-    const music = document.getElementById("backgroundMusic");
-    const specialMusic = document.getElementById("specialMusic");
-    const songName = document.getElementById("songName");
-    const playButton = document.getElementById("playButton");
-
-    music.src = backgroundSong;
-
-    /* ==========================================
-       START EXPERIENCE
-       First user click is required for mobile audio
-    ========================================== */
-
-    function startExperience() {
-      if (experienceStarted) return;
-
-      experienceStarted = true;
-
-      document.getElementById("introScreen").style.display = "none";
-      document.getElementById("mainWebsite").style.display = "block";
-
-      loadPhotos();
-      startBackgroundMusic();
-
-      setTimeout(function() {
-        document.getElementById("mainWebsite").scrollIntoView({
-          behavior: "smooth"
-        });
-      }, 100);
-    }
-
-    /* ==========================================
-       BACKGROUND SONG 1
-    ========================================== */
-
-    function startBackgroundMusic() {
-      specialMusic.pause();
-      specialSongActive = false;
-
-      songName.textContent = "Background Music: Song 1 ❤️";
-      music.volume = Number(document.getElementById("volumeControl").value);
-
-      music.play().then(function() {
-        playButton.textContent = "⏸ Pause";
-      }).catch(function() {
-        songName.textContent = "Tap Play to start the background music 🎵";
-        playButton.textContent = "▶ Play";
+  /* ============ TIMELINE SCROLL REVEAL ============ */
+  function initTimelineObserver(){
+    const items = document.querySelectorAll(".timeline-item");
+    const obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) e.target.classList.add("in-view");
       });
+    }, { threshold: 0.3 });
+    items.forEach(function(item){ obs.observe(item); });
+  }
+
+  /* ============ MUSIC LOGIC ============ */
+  function buildSongGrid(){
+    songGrid.innerHTML = "";
+    specialSongs.forEach(function(song, index){
+      const chip = document.createElement("button");
+      chip.className = "song-chip";
+      chip.id = "chip-" + index;
+      chip.textContent = song.name;
+      chip.onclick = function(){ playSpecial(index); };
+      songGrid.appendChild(chip);
+    });
+  }
+
+  function setActiveChip(index){
+    specialSongs.forEach(function(_, i){
+      document.getElementById("chip-" + i).classList.toggle("active", i === index);
+    });
+  }
+
+  function playBackground(){
+    activeMode = "bg";
+    setActiveChip(-1);
+    songName.textContent = backgroundSong.name;
+    selAudio.pause();
+    bgAudio.play().then(function(){ playButton.textContent = "⏸"; }).catch(function(){ playButton.textContent = "▶"; });
+  }
+
+  function playSpecial(index){
+    activeMode = index;
+    setActiveChip(index);
+    songName.textContent = specialSongs[index].name;
+    bgAudio.pause();
+    selAudio.src = specialSongs[index].url;
+    selAudio.currentTime = 0;
+    selAudio.play().then(function(){ playButton.textContent = "⏸"; }).catch(function(){ playButton.textContent = "▶"; });
+  }
+
+  function stepSpecial(dir){
+    if (activeMode === "bg"){ playSpecial(0); return; }
+    let next = activeMode + dir;
+    if (next < 0) next = specialSongs.length - 1;
+    if (next >= specialSongs.length) next = 0;
+    playSpecial(next);
+  }
+
+  selAudio.addEventListener("ended", function(){ playBackground(); });
+
+  function togglePlayPause(){
+    const track = (activeMode === "bg") ? bgAudio : selAudio;
+    if (track.paused){
+      track.play().then(function(){ playButton.textContent = "⏸"; });
+    } else {
+      track.pause();
+      playButton.textContent = "▶";
     }
+  }
 
-    function resumeBackgroundMusic() {
-      if (!experienceStarted) return;
+  document.getElementById("volumeControl").addEventListener("input", function(){
+    bgAudio.volume = this.value;
+    selAudio.volume = this.value;
+  });
 
-      specialMusic.pause();
-      specialSongActive = false;
+  /* ============ PHOTOS ============ */
+  function loadPhotos(){
+    const gallery = document.getElementById("photoGallery");
+    gallery.innerHTML = "";
 
-      songName.textContent = "Background Music: Song 1 ❤️";
+    photos.forEach(function(photo, index){
+      const card = document.createElement("div");
+      card.className = "photo-card";
+      card.dataset.index = index;
 
-      music.play().then(function() {
-        playButton.textContent = "⏸ Pause";
-      }).catch(function() {
-        playButton.textContent = "▶ Play";
+      card.innerHTML =
+        '<img src="' + BASE_URL + photo.file + '" alt="' + photo.title + '" loading="lazy">' +
+        '<div class="photo-overlay"></div>' +
+        '<button class="like-btn" data-file="' + photo.file + '">🤍</button>' +
+        '<div class="like-count" data-file-count="' + photo.file + '"></div>' +
+        '<div class="inside-heart" style="top:12%;right:12%;font-size:26px;animation-delay:' + (index*.2) + 's;">❤️</div>' +
+        '<div class="inside-heart" style="top:40%;left:10%;font-size:17px;animation-delay:' + (index*.4) + 's;">💕</div>' +
+        '<div class="zoom-hint">🔍 Bada dekhein</div>' +
+        '<div class="photo-text"><h3>' + photo.title + '</h3><p>' + photo.message + '</p></div>';
+
+      // single click opens modal
+      let clickTimer = null;
+      card.addEventListener("click", function(e){
+        if (e.target.closest(".like-btn")) return;
+        if (clickTimer !== null) return;
+        clickTimer = setTimeout(function(){
+          openPhoto(index);
+          clickTimer = null;
+        }, 220);
       });
-    }
 
-    /* ==========================================
-       SONG 2 / 3 / 4
-    ========================================== */
-
-    function selectSpecialSong(index) {
-      currentSpecialSong = index;
-      specialSongActive = true;
-
-      music.pause();
-      specialMusic.pause();
-      specialMusic.currentTime = 0;
-      specialMusic.src = specialSongs[index].url;
-      specialMusic.volume = Number(document.getElementById("volumeControl").value);
-
-      songName.textContent = "Now Playing: " + specialSongs[index].name;
-
-      specialMusic.play().then(function() {
-        playButton.textContent = "⏸ Pause";
-      }).catch(function() {
-        songName.textContent = "Tap the song button again to play 🎵";
-        playButton.textContent = "▶ Play";
+      // double click / double tap = like
+      card.addEventListener("dblclick", function(e){
+        if (clickTimer !== null){ clearTimeout(clickTimer); clickTimer = null; }
+        toggleLike(photo.file, card);
+        createPhotoHearts(card);
       });
-    }
 
-    function nextSong() {
-      currentSpecialSong =
-        (currentSpecialSong + 1) % specialSongs.length;
-      selectSpecialSong(currentSpecialSong);
-    }
+      // tilt effect (desktop only)
+      card.addEventListener("mousemove", function(e){
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "rotateY(" + (x*8) + "deg) rotateX(" + (-y*8) + "deg) translateY(-4px)";
+      });
+      card.addEventListener("mouseleave", function(){
+        card.style.transform = "";
+      });
 
-    function previousSong() {
-      currentSpecialSong =
-        (currentSpecialSong - 1 + specialSongs.length) %
-        specialSongs.length;
-      selectSpecialSong(currentSpecialSong);
-    }
-
-    /* If Song 2/3/4 ends, Song 1 resumes */
-    specialMusic.addEventListener("ended", function() {
-      resumeBackgroundMusic();
+      gallery.appendChild(card);
     });
 
-    function toggleMusic() {
-      if (specialSongActive) {
-        if (specialMusic.paused) {
-          music.pause();
-          specialMusic.play().then(function() {
-            playButton.textContent = "⏸ Pause";
-          });
-        } else {
-          /* User requested: when special songs stop, Song 1 continues */
-          specialMusic.pause();
-          resumeBackgroundMusic();
-        }
-      } else {
-        if (music.paused) {
-          startBackgroundMusic();
-        } else {
-          music.pause();
-          playButton.textContent = "▶ Play";
-          songName.textContent = "Background Music Paused";
-        }
-      }
-    }
-
-    document.getElementById("volumeControl")
-      .addEventListener("input", function() {
-        const value = Number(this.value);
-        music.volume = value;
-        specialMusic.volume = value;
+    // like button clicks
+    gallery.querySelectorAll(".like-btn").forEach(function(btn){
+      btn.addEventListener("click", function(e){
+        e.stopPropagation();
+        const file = btn.dataset.file;
+        const card = btn.closest(".photo-card");
+        toggleLike(file, card);
       });
+    });
 
-    music.volume = 0.45;
-    specialMusic.volume = 0.45;
+    updateAllLikeDisplays();
+  }
 
-    /* ==========================================
-       LOAD PHOTOS
-    ========================================== */
+  function toggleLike(file, card){
+    const btn = card.querySelector(".like-btn");
+    const liked = btn.classList.toggle("liked");
+    btn.textContent = liked ? "❤️" : "🤍";
+    likes[file] += liked ? 1 : -1;
+    if (likes[file] < 0) likes[file] = 0;
+    updateAllLikeDisplays();
+  }
 
-    function loadPhotos() {
+  function updateAllLikeDisplays(){
+    document.querySelectorAll("[data-file-count]").forEach(function(el){
+      const file = el.dataset.fileCount;
+      const count = likes[file] || 0;
+      el.textContent = count > 0 ? (count + (count === 1 ? " like" : " likes")) : "";
+    });
+  }
 
-      const gallery =
-        document.getElementById("photoGallery");
-
-      gallery.innerHTML = "";
-
-      photos.forEach(function(photo, index) {
-
-        const card =
-          document.createElement("div");
-
-        card.className =
-          "photo-card";
-
-        card.onclick =
-          function() {
-
-            card.classList.remove("heartbeat");
-
-            void card.offsetWidth;
-
-            card.classList.add("heartbeat");
-
-            openPhoto(
-              BASE_URL + photo.file
-            );
-
-            createPhotoHearts(card);
-
-          };
-
-
-        card.innerHTML = `
-
-          <img
-            src="${BASE_URL + photo.file}"
-            alt="${photo.title}"
-            loading="lazy"
-          >
-
-          <div class="photo-overlay"></div>
-
-          <div class="inside-heart"
-               style="
-                 top:12%;
-                 right:12%;
-                 font-size:28px;
-                 animation-delay:${index * .2}s;
-               ">
-            ❤️
-          </div>
-
-          <div class="inside-heart"
-               style="
-                 top:40%;
-                 left:10%;
-                 font-size:18px;
-                 animation-delay:${index * .4}s;
-               ">
-            💕
-          </div>
-
-          <div class="photo-text">
-
-            <h3>${photo.title}</h3>
-
-            <p>${photo.message}</p>
-
-          </div>
-
-        `;
-
-        gallery.appendChild(card);
-
-      });
-
+  function shufflePhotos(){
+    for (let i = photos.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [photos[i], photos[j]] = [photos[j], photos[i]];
     }
+    const gallery = document.getElementById("photoGallery");
+    gallery.style.opacity = "0";
+    gallery.style.transform = "scale(.96)";
+    setTimeout(function(){
+      loadPhotos();
+      gallery.style.transition = ".5s";
+      gallery.style.opacity = "1";
+      gallery.style.transform = "scale(1)";
+    }, 300);
+  }
 
+  function spotlightRandom(){
+    document.querySelectorAll(".photo-card").forEach(function(c){
+      c.classList.remove("spotlight");
+      const tag = c.querySelector(".spotlight-tag");
+      if (tag) tag.remove();
+    });
+    const cards = document.querySelectorAll(".photo-card");
+    const pick = cards[Math.floor(Math.random() * cards.length)];
+    pick.classList.add("spotlight");
+    const tag = document.createElement("div");
+    tag.className = "spotlight-tag";
+    tag.textContent = "Aaj Ki Yaad";
+    pick.prepend(tag);
+    pick.scrollIntoView({ behavior:"smooth", block:"center" });
+  }
 
-    /* ==========================================
-       PHOTO SHUFFLE
-    ========================================== */
-
-    function shufflePhotos() {
-
-      for (
-        let i = photos.length - 1;
-        i > 0;
-        i--
-      ) {
-
-        const j =
-          Math.floor(
-            Math.random() * (i + 1)
-          );
-
-        [
-          photos[i],
-          photos[j]
-        ] =
-        [
-          photos[j],
-          photos[i]
-        ];
-
-      }
-
-      const gallery =
-        document.getElementById("photoGallery");
-
-      gallery.style.opacity = "0";
-      gallery.style.transform = "scale(.96)";
-
-      setTimeout(function() {
-
-        loadPhotos();
-
-        gallery.style.opacity = "1";
-        gallery.style.transform = "scale(1)";
-        gallery.style.transition = ".5s";
-
-      }, 300);
-
+  function createPhotoHearts(card){
+    for (let i = 0; i < 8; i++){
+      const heart = document.createElement("span");
+      heart.textContent = "❤️";
+      heart.style.position = "absolute";
+      heart.style.left = Math.random() * 80 + 10 + "%";
+      heart.style.top = Math.random() * 80 + 10 + "%";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.zIndex = "10";
+      heart.style.pointerEvents = "none";
+      heart.style.transition = "1s";
+      card.appendChild(heart);
+      setTimeout(function(){ heart.style.transform = "translateY(-70px) scale(1.5)"; heart.style.opacity = "0"; }, 50);
+      setTimeout(function(){ heart.remove(); }, 1100);
     }
+  }
 
+  /* ============ LIGHTBOX MODAL ============ */
+  function renderModal(){
+    const photo = photos[modalIndex];
+    const img = document.getElementById("modalImage");
+    img.style.opacity = "0";
+    setTimeout(function(){
+      img.src = BASE_URL + photo.file;
+      img.onload = function(){ img.style.opacity = "1"; };
+    }, 120);
+    document.getElementById("modalTitle").textContent = photo.title;
+    document.getElementById("modalMessage").textContent = photo.message;
+    document.getElementById("modalCounter").textContent = (modalIndex + 1) + " / " + photos.length;
+  }
 
-    /* ==========================================
-       HEARTS ON PHOTO CLICK
-    ========================================== */
+  function openPhoto(index){
+    modalIndex = index;
+    renderModal();
+    document.getElementById("photoModal").style.display = "flex";
+  }
 
-    function createPhotoHearts(card) {
+  function closePhoto(){
+    document.getElementById("photoModal").style.display = "none";
+  }
 
-      for (
-        let i = 0;
-        i < 8;
-        i++
-      ) {
+  function modalStep(dir){
+    modalIndex = (modalIndex + dir + photos.length) % photos.length;
+    renderModal();
+  }
 
-        const heart =
-          document.createElement("span");
+  document.addEventListener("keydown", function(e){
+    if (document.getElementById("photoModal").style.display !== "flex") return;
+    if (e.key === "ArrowRight") modalStep(1);
+    if (e.key === "ArrowLeft") modalStep(-1);
+    if (e.key === "Escape") closePhoto();
+  });
 
-        heart.textContent = "❤️";
+  // swipe support
+  let touchStartX = 0;
+  document.getElementById("photoModal").addEventListener("touchstart", function(e){
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  document.getElementById("photoModal").addEventListener("touchend", function(e){
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 50) modalStep(dx < 0 ? 1 : -1);
+  });
 
-        heart.style.position =
-          "absolute";
-
-        heart.style.left =
-          Math.random() * 80 + 10 + "%";
-
-        heart.style.top =
-          Math.random() * 80 + 10 + "%";
-
-        heart.style.fontSize =
-          Math.random() * 20 + 15 + "px";
-
-        heart.style.zIndex = "10";
-
-        heart.style.pointerEvents = "none";
-
-        heart.style.transition = "1s";
-
-        card.appendChild(heart);
-
-        setTimeout(function() {
-
-          heart.style.transform =
-            "translateY(-70px) scale(1.5)";
-
-          heart.style.opacity = "0";
-
-        }, 50);
-
-        setTimeout(function() {
-
-          heart.remove();
-
-        }, 1100);
-
-      }
-
+  /* ============ TASK / JOURNEY LOGIC ============ */
+  function buildProgressDots(){
+    const wrap = document.getElementById("progressDots");
+    wrap.innerHTML = "";
+    for (let i = 0; i < TOTAL_TASKS; i++){
+      const dot = document.createElement("div");
+      dot.className = "dot";
+      dot.id = "dot-" + i;
+      wrap.appendChild(dot);
     }
+    updateDots();
+  }
 
-
-    /* ==========================================
-       PHOTO MODAL
-    ========================================== */
-
-    function openPhoto(src) {
-
-      const modal =
-        document.getElementById("photoModal");
-
-      document.getElementById("modalImage").src =
-        src;
-
-      modal.style.display =
-        "flex";
-
+  function updateDots(){
+    for (let i = 0; i < TOTAL_TASKS; i++){
+      const dot = document.getElementById("dot-" + i);
+      dot.classList.remove("done", "current");
+      if (i < currentTaskIndex) dot.classList.add("done");
+      else if (i === currentTaskIndex) dot.classList.add("current");
     }
+  }
 
+  function showTask(index){
+    document.querySelectorAll(".task-step").forEach(function(step){
+      step.classList.toggle("visible", parseInt(step.dataset.step) === index);
+    });
+    updateDots();
+  }
 
-    function closePhoto() {
-
-      document.getElementById("photoModal")
-        .style.display = "none";
-
+  function completeTask(index, unlockId){
+    if (index !== currentTaskIndex) return;
+    const currentStep = document.querySelector('.task-step[data-step="' + index + '"]');
+    const rect = currentStep.getBoundingClientRect();
+    burstHeartsAt(rect.left + rect.width / 2, rect.top + window.scrollY + 20);
+    unlockSection(unlockId);
+    currentTaskIndex++;
+    if (currentTaskIndex < TOTAL_TASKS){
+      setTimeout(function(){ showTask(currentTaskIndex); }, 350);
+    } else {
+      document.querySelectorAll(".task-step").forEach(function(s){ s.classList.remove("visible"); });
+      updateDots();
+      document.getElementById("journeyDoneMsg").style.display = "block";
     }
+  }
 
+  function unlockSection(id){
+    const section = document.getElementById(id);
+    section.classList.add("unlocked");
+    setTimeout(function(){ section.scrollIntoView({ behavior:"smooth", block:"start" }); }, 450);
+  }
 
-    /* ==========================================
-       SURPRISES
-    ========================================== */
-
-    function toggleSurprise(id) {
-
-      const item =
-        document.getElementById(id);
-
-      item.style.display =
-        item.style.display === "block"
-          ? "none"
-          : "block";
-
+  function burstHeartsAt(x, y){
+    for (let i = 0; i < 10; i++){
+      setTimeout(function(){
+        const heart = document.createElement("div");
+        heart.className = "celebration-heart";
+        heart.textContent = ["❤️","💕","✨"][Math.floor(Math.random()*3)];
+        heart.style.left = (x + (Math.random()*60-30)) + "px";
+        heart.style.top = y + "px";
+        heart.style.position = "fixed";
+        heart.style.animationDuration = (Math.random()*1.5+2) + "s";
+        document.body.appendChild(heart);
+        setTimeout(function(){ heart.remove(); }, 3600);
+      }, i*40);
     }
+  }
 
+  /* ============ SECRETS ============ */
+  function toggleSurprise(id){
+    const item = document.getElementById(id);
+    item.style.display = (item.style.display === "block") ? "none" : "block";
+  }
 
-    /* ==========================================
-       SEQUENTIAL CHALLENGES
-       One task appears at a time.
-    ========================================== */
+  /* ============ QUIZ ============ */
+  function correctAnswer(){
+    document.getElementById("quizResult").innerHTML = "Correct! Obviously Kajal is the right answer. ❤️👑";
+    celebrate();
+  }
+  function wrongAnswer(){
+    document.getElementById("quizResult").innerHTML = "Hmm... socho phir se! Correct answer shayad Kajal hai. 😄❤️";
+  }
 
-    const challenges = [
-      "❤️ Is website ko dekhte hue ek smile deni hai.",
-      "💕 Apni favourite photo choose karni hai aur us par click karna hai.",
-      "🌹 Ek baar Sandeep ka naam smile ke saath sochna hai.",
-      "💌 Final proposal ke liye ready hona hai."
-    ];
+  /* ============ FINAL YES ============ */
+  function sayYes(){
+    const seal = document.querySelector("#proposalSection .seal");
+    seal.classList.remove("beat");
+    seal.classList.add("crack");
+    document.getElementById("finalMessage").style.display = "block";
+    celebrate();
+    setTimeout(function(){
+      document.getElementById("finalMessage").scrollIntoView({ behavior:"smooth", block:"center" });
+    }, 200);
+  }
 
-    let currentChallenge = 0;
-
-    function completeCurrentTask() {
-      const result = document.getElementById("challengeResult");
-      const taskNumber = document.getElementById("taskNumber");
-      const taskText = document.getElementById("taskText");
-      const button = document.getElementById("completeTaskButton");
-
-      result.innerHTML = "✨ Challenge complete! ❤️";
-      celebrate();
-
-      setTimeout(function() {
-        currentChallenge++;
-
-        if (currentChallenge < challenges.length) {
-          taskNumber.textContent =
-            "Challenge " + (currentChallenge + 1) +
-            " of " + challenges.length;
-
-          taskText.textContent = challenges[currentChallenge];
-
-          result.innerHTML =
-            "Next challenge unlocked... 🔓❤️";
-
-          document.getElementById("singleTask")
-            .classList.remove("heartbeat");
-
-          void document.getElementById("singleTask").offsetWidth;
-
-          document.getElementById("singleTask")
-            .classList.add("heartbeat");
-
-        } else {
-          taskNumber.textContent = "All Challenges Completed 🎉";
-          taskText.innerHTML =
-            "❤️ Kajal, tumne saare challenges complete kar liye! " +
-            "Ab final surprise unlock ho gaya hai.";
-
-          button.textContent = "Go To Final Surprise 💖";
-          button.onclick = function() {
-            document.getElementById("proposalSection")
-              .scrollIntoView({ behavior: "smooth" });
-          };
-
-          result.innerHTML =
-            "🔓 Final surprise unlocked! ❤️";
-        }
-      }, 850);
+  /* ============ CELEBRATION ============ */
+  function celebrate(){
+    for (let i = 0; i < 35; i++){
+      setTimeout(function(){
+        const heart = document.createElement("div");
+        heart.className = "celebration-heart";
+        heart.textContent = ["❤️","💕","💖","🌹","✨"][Math.floor(Math.random()*5)];
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.animationDuration = (Math.random()*2+2.5) + "s";
+        document.body.appendChild(heart);
+        setTimeout(function(){ heart.remove(); }, 5000);
+      }, i*100);
     }
+  }
 
-    /* ==========================================
-       QUIZ
-    ========================================== */
+  /* ============ AMBIENT FLOATING HEARTS ============ */
+  setInterval(function(){
+    const heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.textContent = Math.random() > .5 ? "❤️" : "💕";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = Math.random()*22+14 + "px";
+    heart.style.animationDuration = Math.random()*5+7 + "s";
+    document.body.appendChild(heart);
+    setTimeout(function(){ heart.remove(); }, 13000);
+  }, 1800);
 
-    function correctAnswer() {
+  /* ============ CURSOR HEART TRAIL (subtle, desktop only) ============ */
+  let lastTrail = 0;
+  document.addEventListener("mousemove", function(e){
+    const now = Date.now();
+    if (now - lastTrail < 260) return;
+    lastTrail = now;
+    const t = document.createElement("div");
+    t.className = "cursor-trail";
+    t.textContent = "✨";
+    t.style.left = e.clientX + "px";
+    t.style.top = e.clientY + "px";
+    document.body.appendChild(t);
+    setTimeout(function(){ t.remove(); }, 1000);
+  });
 
-      document.getElementById("quizResult")
-        .innerHTML =
-        "Correct! Obviously Kajal is the right answer. ❤️👑";
-
-      celebrate();
-
-    }
-
-
-    function wrongAnswer() {
-
-      document.getElementById("quizResult")
-        .innerHTML =
-        "Hmm... socho phir se! Correct answer shayad Kajal hai. 😄❤️";
-
-    }
-
-
-    /* ==========================================
-       FINAL YES
-    ========================================== */
-
-    function sayYes() {
-
-      document.getElementById("finalMessage")
-        .style.display = "block";
-
-      celebrate();
-
-      setTimeout(function() {
-
-        document
-          .getElementById("finalMessage")
-          .scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
-
-      }, 200);
-
-    }
-
-
-    /* ==========================================
-       CELEBRATION
-    ========================================== */
-
-    function celebrate() {
-
-      for (
-        let i = 0;
-        i < 35;
-        i++
-      ) {
-
-        setTimeout(function() {
-
-          const heart =
-            document.createElement("div");
-
-          heart.className =
-            "celebration-heart";
-
-          heart.textContent =
-            ["❤️", "💕", "💖", "🌹", "✨"][
-              Math.floor(
-                Math.random() * 5
-              )
-            ];
-
-          heart.style.left =
-            Math.random() * 100 + "vw";
-
-          heart.style.animationDuration =
-            (Math.random() * 2 + 2.5) + "s";
-
-          document.body.appendChild(heart);
-
-          setTimeout(function() {
-
-            heart.remove();
-
-          }, 5000);
-
-        }, i * 100);
-
-      }
-
-    }
-
-
-    /* ==========================================
-       BACKGROUND FLOATING HEARTS
-    ========================================== */
-
-    setInterval(function() {
-
-      const heart =
-        document.createElement("div");
-
-      heart.className =
-        "floating-heart";
-
-      heart.textContent =
-        Math.random() > .5
-          ? "❤️"
-          : "💕";
-
-      heart.style.left =
-        Math.random() * 100 + "vw";
-
-      heart.style.fontSize =
-        Math.random() * 25 + 15 + "px";
-
-      heart.style.animationDuration =
-        Math.random() * 5 + 7 + "s";
-
-      document.body.appendChild(heart);
-
-      setTimeout(function() {
-
-        heart.remove();
-
-      }, 13000);
-
-    }, 1500);
-
-  </script>
-
+</script>
 </body>
 </html>
